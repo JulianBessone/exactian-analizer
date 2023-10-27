@@ -1,3 +1,6 @@
-2023/10/25-00:56:57.536 5203 Reusing MANIFEST /Users/bessonedev/dev/exactian-analizer/tokens/EXACTIAN-CHAT/Default/Local Storage/leveldb/MANIFEST-000001
-2023/10/25-00:56:57.547 5203 Recovering log #4
-2023/10/25-00:56:57.548 5203 Reusing old log /Users/bessonedev/dev/exactian-analizer/tokens/EXACTIAN-CHAT/Default/Local Storage/leveldb/000004.log 
+2023/10/27-19:54:06.072 2e03 Reusing MANIFEST /Users/bessonedev/dev/exactian-analizer/tokens/EXACTIAN-CHAT/Default/Local Storage/leveldb/MANIFEST-000001
+2023/10/27-19:54:06.073 2e03 Recovering log #7
+2023/10/27-19:54:06.074 2e03 Reusing old log /Users/bessonedev/dev/exactian-analizer/tokens/EXACTIAN-CHAT/Default/Local Storage/leveldb/000007.log 
+2023/10/27-19:55:06.753 3503 Level-0 table #10: started
+2023/10/27-19:55:06.773 3503 Level-0 table #10: 13509 bytes OK
+2023/10/27-19:55:06.811 3503 Delete type=0 #7

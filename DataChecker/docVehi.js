@@ -19,7 +19,7 @@ const getDocVehi = async (tableDocVehi, page) =>{
 
         const docDescription = await page.evaluate(textOfDoc => textOfDoc.textContent, textOfDoc);//Obtengo el nombre del emple o de la docu
 
-        if(!docDescription){
+        if(!docDescription || docDescription === ' ' || docDescription === 'Correspondiente a clasificación: CAMIONETAS - TRANSPORTE DE PERSONAL'){
             console.log('esto es un separador')//Si no tiene nombre de docu o emple es un separador por ende termino la iteración de ese elemento 
         }else{
             if(!imgGreen && !imgYellow && !imgRed){
@@ -35,7 +35,7 @@ const getDocVehi = async (tableDocVehi, page) =>{
                 docInfoVehi[index-1][docDescription] = 'Aprobado'
             }
             if(imgYellow){
-                docInfoVehi[index-1][docDescription] = 'Pendiente de Revisión'
+                docInfoVehi[index-1][docDescription] = 'Vencida'
             }
             if(imgRed){
                 docInfoVehi[index-1][docDescription] = 'No esta presentada'

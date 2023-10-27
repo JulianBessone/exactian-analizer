@@ -1,4 +1,5 @@
-const venom = require('venom-bot')
+const venom = require('venom-bot');
+const { exactian } = require('./puppeteer.');
 
 venom
   .create({
@@ -16,8 +17,8 @@ const start = async (client)=>{
     const chats = await client.getAllChatsGroups();
     const group = await chats.filter(c=>c.groupMetadata.subject === 'Cosas importar')
 
-    console.log(group)
     await client.sendText(`${group[0].id.user}@g.us`,`MENSAJE DE PRUEBA`)
+    exactian(client, group[0].id.user)
 }
 
 ///FUNCION PARA ENVIAR MENSAJES

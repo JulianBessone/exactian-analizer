@@ -35,7 +35,7 @@ const getDocEmple = async (tableDocEmple, page) =>{
                 docInfoEmple[index-1][docDescription] = 'Aprobado'
             }
             if(imgYellow){
-                docInfoEmple[index-1][docDescription] = 'Pendiente de Revisión'
+                docInfoEmple[index-1][docDescription] = 'Vencida'
             }
             if(imgRed){
                 docInfoEmple[index-1][docDescription] = 'No esta presentada'
