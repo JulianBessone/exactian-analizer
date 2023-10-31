@@ -47,26 +47,23 @@ const navegationMenu = async (page, destiny) =>{
     const liDocu = await page.$('li.nav-item:nth-child(4)'); //elemento que selecciona el apartado de DOCUMENTACION
     const ulDocs = await page.$$('ul.list-group a'); //accedo a todos los elementos del MENU DESPLEGABLE DE DOCUMENTACION
 
+    
     switch (destiny) {
         case 'generalDocu':
-
-            //await liDocu.click()//Hago click en el menu en la parte de navegación
             //En en menu desplegable
-            const generalDetail = ulDocs[1] //voy a la info general
+            //const generalDetail = ulDocs[1] //voy a la info general
             //await generalDetail.click(); // le hago click
-            await page.goto('https://ganfenglatam.exactian.solutions/webcont/index.php?section=20')
+            await page.goto('https://ganfenglatam.exactian.solutions/webcont/index.php?section=20')//Aqui en vez de hacer click en el menu de navegación hemos resulto que lo mejor seria decirle al navegador que se dirija a esa url
             await page.waitForTimeout(5000)
             console.log('ESTAMOS EN EL MENU DE RESUMEN GENERAL')
-
+            break;
         case 'presentarDocu':
-            //await page.waitForTimeout(5000)
-            //await liDocu.click()//Hago click en el menu en la parte de navegación
             //En en menu desplegable
-            //onst presentarDocuLI = ulDocs[0] //voy a la info general
             //await presentarDocuLI.click(); // le hago click
             await page.goto('https://ganfenglatam.exactian.solutions/webcontv2/Controllers/WebcontPageController/appRedirect/SUBMISSIONS')
+            await page.waitForTimeout(5000)
             console.log('ESTAMOS EN EL MENU DE PRESENTACIONES DE DOCU')
-        
+            break;
         default:
             break;
     }

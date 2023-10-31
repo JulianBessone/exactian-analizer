@@ -25,14 +25,13 @@ const exactian = async (client, groupID) =>{
     //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(4000)
 
-
+    /*
     await navegationMenu(page, 'generalDocu') //Funcion para navegar en el menu y aceder a la documentación detallada generalmente 
 
     // Esperar a que la nueva página se cargue completamente
-    await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(10000)
 
     //TABLA DE INFORMACIÓN
-    /*
     await page.waitForSelector('table#principal table table table tr')
     await page.waitForTimeout(2000)
     console.log('*************************/ /*INFORMACIÓN DESCARGADA /****************************')
@@ -40,17 +39,16 @@ const exactian = async (client, groupID) =>{
     const tableDocContra = table[1]
     const tableDocEmple = table[2]
     const tableDocVehi = table[3]
+
+    const docInfoContra = await getDocContra(tableDocContra, page)
+    const docInfoEmple = await getDocEmple(tableDocEmple,page)
+    const docInfoVehi = await getDocVehi(tableDocVehi, page)
+
+    await notifyDocEmpleProblems(client, groupID, docInfoEmple)
     */
-    //const docInfoContra = await getDocContra(tableDocContra, page)
-    //const docInfoEmple = await getDocEmple(tableDocEmple,page)
-    //const docInfoVehi = await getDocVehi(tableDocVehi, page)
-
-    //notifyDocEmpleProblems(client, groupID, docInfoEmple)
-
     await navegationMenu(page, 'presentarDocu') //Funcion para navegar en el menu y acceder al apartado de cargar documentacion
-    await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-
-    await chargeData(page, '202309', 'vehiculo')
+    await page.waitForTimeout(5000)
+    await chargeData(page, 'Facturas emitidas (solo para empleados subcontratados) [26-09-2023]', 'BURGOS, WALTER MARIO')
 
     console.log('**** TAREA FINALIZADA :D  ****')
     //await browser.close();
