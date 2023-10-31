@@ -20,13 +20,29 @@ const logginExactian = async (page) =>{
     await page.waitForTimeout(2000)//espero 2 seg asi la web no peta
     await passInput.press('Enter'); // presiono la tecla enter e ingreso
     console.log('**********************SESION INICIADA CORRECTAMENTE***************************')
+    await page.waitForTimeout(3000)//espero 2 seg asi la web no peta
+    const currentURL = await page.url(); // Obtiene la URL actual de la página
+    console.log(currentURL)
+    if (currentURL === 'https://webcont.exactian.app/ganfenglatam/dashboard') {
+        await oldSiteComeBack(page)
+        console.log('**********************CAMBIANDO A WEB CONT v1***************************')
+    }
 }
 
-//La idea aquí es que reciba por parametro el destino así va a distintas ubicaciones con la misma fn
+const oldSiteComeBack = async (page) =>{
+    await page.waitForTimeout(2000)
+    await page.waitForSelector('button.dropdown-toggle.shadow.user-icon')
+    await page.click('button.dropdown-toggle.shadow.user-icon')
+    await page.waitForTimeout(2000)
+    const changeWebCont = await page.$$('button.btn-user-options')
+    const buttonChangeWebCont= changeWebCont[2]
+    buttonChangeWebCont.click()
+}
+
 const navegationMenu = async (page, destiny) =>{
     // MENU DOCUMENTACIÓN
     //await page.waitForTimeout(5000)
-    await page.waitForSelector('ul.navbar-nav');
+    //await page.waitForSelector('ul.navbar-nav');
 
     const liDocu = await page.$('li.nav-item:nth-child(4)'); //elemento que selecciona el apartado de DOCUMENTACION
     const ulDocs = await page.$$('ul.list-group a'); //accedo a todos los elementos del MENU DESPLEGABLE DE DOCUMENTACION
@@ -34,17 +50,22 @@ const navegationMenu = async (page, destiny) =>{
     switch (destiny) {
         case 'generalDocu':
 
-            await liDocu.click()//Hago click en el menu en la parte de navegación
+            //await liDocu.click()//Hago click en el menu en la parte de navegación
             //En en menu desplegable
             const generalDetail = ulDocs[1] //voy a la info general
-            await generalDetail.click(); // le hago click
+            //await generalDetail.click(); // le hago click
+            await page.goto('https://ganfenglatam.exactian.solutions/webcont/index.php?section=20')
+            await page.waitForTimeout(5000)
+            console.log('ESTAMOS EN EL MENU DE RESUMEN GENERAL')
 
         case 'presentarDocu':
-            await page.waitForTimeout(5000)
-            await liDocu.click()//Hago click en el menu en la parte de navegación
+            //await page.waitForTimeout(5000)
+            //await liDocu.click()//Hago click en el menu en la parte de navegación
             //En en menu desplegable
-            const presentarDocuLI = ulDocs[0] //voy a la info general
-            await presentarDocuLI.click(); // le hago click
+            //onst presentarDocuLI = ulDocs[0] //voy a la info general
+            //await presentarDocuLI.click(); // le hago click
+            await page.goto('https://ganfenglatam.exactian.solutions/webcontv2/Controllers/WebcontPageController/appRedirect/SUBMISSIONS')
+            console.log('ESTAMOS EN EL MENU DE PRESENTACIONES DE DOCU')
         
         default:
             break;
@@ -53,5 +74,6 @@ const navegationMenu = async (page, destiny) =>{
 
 module.exports = {
     logginExactian,
-    navegationMenu
+    navegationMenu,
+    oldSiteComeBack
 };

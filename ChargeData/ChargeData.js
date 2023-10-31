@@ -1,4 +1,17 @@
-const chargeData = async (page, periodo, appliesTo, type) =>{
+const chargeData = async (page, docuName, periodo, appliesTo, type) =>{
+    page.waitForSelector('button.btn.btn-secondary-gd')
+    page.click('button.btn.btn-secondary-gd')
+    page.waitForTimeout(2000)
+
+    const options = await page.$$('button.btn.popover-opt.d-block.w-100')
+    const chargeDataButton = options[0]
+    await chargeDataButton.click()
+}
+
+
+
+
+const chargeDataOld = async (page, periodo, appliesTo, type) =>{
     // Espera a que el elemento select esté disponible en la página
     await page.waitForSelector('#periodo');
     // Espera a que el elemento input radio esté disponible en la página

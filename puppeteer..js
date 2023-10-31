@@ -2,7 +2,7 @@ const puppeteer = require ('puppeteer');
 const { getDocContra } = require('./DataChecker/docContra');
 const { getDocEmple } = require('./DataChecker/docEmple');
 const { getDocVehi } = require('./DataChecker/docVehi');
-const { logginExactian, navegationMenu } = require('./ExactianInterface/ExactianInterface');
+const { logginExactian, navegationMenu, oldSiteComeBack } = require('./ExactianInterface/ExactianInterface');
 const { notifyDocEmpleProblems } = require('./Notifications/notificationsDocu');
 const { chargeData } = require('./ChargeData/ChargeData');
 
@@ -19,13 +19,14 @@ const exactian = async (client, groupID) =>{
     const page = await browser.newPage();
     await page.goto('https://ganfenglatam.exactian.solutions'); //Accedo a la web de exactian Ganfen
 
-    logginExactian(page) //Funcion para ingresar a la app.
+    await logginExactian(page) //Funcion para ingresar a la app.
 
     // Esperar a que la nueva página se cargue completamente
-    await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+    //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(4000)
 
-    navegationMenu(page, 'generalDocu') //Funcion para navegar en el menu y aceder a la documentación detallada generalmente
-    
+
+    await navegationMenu(page, 'generalDocu') //Funcion para navegar en el menu y aceder a la documentación detallada generalmente 
 
     // Esperar a que la nueva página se cargue completamente
     await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
@@ -46,9 +47,10 @@ const exactian = async (client, groupID) =>{
 
     //notifyDocEmpleProblems(client, groupID, docInfoEmple)
 
-    navegationMenu(page, 'presentarDocu') //Funcion para navegar en el menu y acceder al apartado de cargar documentacion
-    chargeData(page, '202309', 'vehiculo')
+    await navegationMenu(page, 'presentarDocu') //Funcion para navegar en el menu y acceder al apartado de cargar documentacion
+    await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
 
+    await chargeData(page, '202309', 'vehiculo')
 
     console.log('**** TAREA FINALIZADA :D  ****')
     //await browser.close();
