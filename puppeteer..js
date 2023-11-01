@@ -48,7 +48,7 @@ const exactian = async (client, groupID) =>{
     */
     await navegationMenu(page, 'presentarDocu') //Funcion para navegar en el menu y acceder al apartado de cargar documentacion
     await page.waitForTimeout(5000)
-    await chargeData(page, 'Facturas emitidas (solo para empleados subcontratados) [26-09-2023]', 'BURGOS, WALTER MARIO')
+    await chargeData(page, 'Facturas emitidas (solo para empleados subcontratados) [26-09-2023]', 'BURGOS, WALTER MARIO', 'data-01.txt')
 
     console.log('**** TAREA FINALIZADA :D  ****')
     //await browser.close();

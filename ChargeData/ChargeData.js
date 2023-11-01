@@ -1,4 +1,6 @@
-const chargeData = async (page, docuName, appliesTo, type) =>{
+const path = require('path');
+
+const chargeData = async (page, docuName, appliesTo, documentForCharge, type) =>{
     ////*************************     PASO UNO     ******************************/
     await page.goto('https://pres.exactian.app/ganfenglatam/documentSubmission/globalPresentation'); //NOS DIRIGIMOS AL LINK PARA PRESENTAR DOCU
 
@@ -41,6 +43,26 @@ const chargeData = async (page, docuName, appliesTo, type) =>{
     const searchName = await page.$('input.form-control.input-search')
     await page.type('input.form-control.input-search', appliesTo)
     await searchName.press('Enter')
+    await page.waitForSelector('div.mt-4')
+
+    const divCheckBox = await page.$('div.global-resource-list div input')
+    await divCheckBox.click()
+
+    const buttonContinue = await page.$('button.btn-secondary-gd')
+    await buttonContinue.click();
+
+    ////*************************     PASO TRES     ******************************/
+    await page.waitForSelector('section.bg-dropzone div input') //El input para subir el archivo
+    const fileInput = await page.$('section.bg-dropzone div input');
+
+    // Directorio actual de tu proyecto
+    const directorioProyecto = __dirname;
+    // Nombre del archivo que deseas cargar
+    const nombreArchivo = documentForCharge;
+    // Construye la ruta completa al archivo
+    const filePath = path.join(directorioProyecto, nombreArchivo);
+    console.log(filePath)
+    await fileInput.uploadFile(filePath);
 
 }
 
