@@ -37,6 +37,7 @@ const oldSiteComeBack = async (page) =>{
     const changeWebCont = await page.$$('button.btn-user-options')
     const buttonChangeWebCont= changeWebCont[2]
     buttonChangeWebCont.click()
+    await page.waitForTimeout(2000)
 }
 
 const navegationMenu = async (page, destiny) =>{
@@ -67,6 +68,7 @@ const navegationMenu = async (page, destiny) =>{
         default:
             break;
     }
+    await page.waitForTimeout(1000)
 }
 
 module.exports = {

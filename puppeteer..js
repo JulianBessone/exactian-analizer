@@ -4,7 +4,7 @@ const { getDocEmple } = require('./DataChecker/docEmple');
 const { getDocVehi } = require('./DataChecker/docVehi');
 const { logginExactian, navegationMenu, oldSiteComeBack } = require('./ExactianInterface/ExactianInterface');
 const { notifyDocEmpleProblems } = require('./Notifications/notificationsDocu');
-const { chargeData } = require('./ChargeData/ChargeData');
+const { chargeData, chargeDataWpp } = require('./ChargeData/ChargeData');
 
 
 //La funcion crea una instancia de puppeteer y recibe el cliente de WhatsApp, esto con el fin de enviar mensajes a un numero en especifico para avisar de que hay docu vencida o pendiente
@@ -56,6 +56,38 @@ const exactian = async (client, groupID) =>{
     //await browser.close();
 }
 
+class ExactianBot {
+    constructor() {
+        this.browser = null;
+        this.page = null;
+    }
+    async launch() {
+        this.browser = await puppeteer.launch({
+             headless: false
+             //args: [ '--proxy-server=178.169.139.180:8080']
+        }); 
+        this.page = await this.browser.newPage();
+        await this.page.goto('https://ganfenglatam.exactian.solutions'); //Accedo a la web de exactian Ganfen 
+    }
+
+    async login() {
+        await logginExactian(this.page) //Funcion para ingresar a la app.
+    }
+
+    async navegate(destiny){
+        await navegationMenu(this.page, destiny)
+    }
+
+    async chargeData(typeDoc, period, appliesTo, fileName){
+        await chargeDataWpp(this.page, typeDoc, period, appliesTo, fileName)
+    }
+
+    async close() {
+        await this.browser.close();
+    }
+}
+
 module.exports = {
-    exactian
+    exactian,
+    ExactianBot
 };

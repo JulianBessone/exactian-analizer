@@ -1,7 +1,7 @@
 const venom = require('venom-bot');
 const fs = require('fs');
 const path = require('path');
-const { exactian } = require('./puppeteer.');
+const { exactian, ExactianBot } = require('./puppeteer.');
 
 const sessionStates = {};
 
@@ -23,51 +23,68 @@ const start = async (client)=>{
 
     await client.sendText(`${group[0].id.user}@g.us`,`MENSAJE DE PRUEBA`)
 
-    let documentacion = '';
-	let resourceName = '';
-	let period = '';
-
 	await client.onMessage(async (message) => {
 		const user = message.from;
     	const userState = sessionStates[user] || {};
 
-
+		
 		if (message.body === 'Cargar documentación') {
 			userState.step = 1;
       		sessionStates[user] = userState;
 
 			await client.sendText(message.from, 'Dime que documentación es, recuerda que debes decirme tal cual como es solicitada en Exactian');
 		} else{
-			if (userState.step === 1) {
+			switch (userState.step) {
+				case 1:
+					userState.documentType = message.body;
+					userState.step = 2;
+					await client.sendText(user, `Ahora, De qué periodo es el documento "${userState.documentType}"? Recuerda que el formato de fecha es: *mm-yyyy*`);
+					break;
 
-				userState.documentType = message.body;
-				userState.step = 2;
-				await client.sendText(user, `Ahora, De qué periodo es el documento "${userState.documentType}"? Recuerda que el formato de fecha es: *mm-yyyy*`);
+				case 2:
+					userState.period = message.body;
+					userState.step = 3;
+					await client.sendText(user, `Dime a que persona implica o a que vehiculo aplica.\n *RECUERDA*:\n En las personas debes escribirlo en el siguiente formato: Apellido, nombre.\n En los Vehiculos debes escribirlo en el siguiente formato: Modelo, Patente`);
+					break;
 
-			} else if (userState.step === 2){
-
-				userState.period = message.body;
-				userState.step = 3;
-				await client.sendText(user, `Ahora puedes enviarme la documentación en PDF o Foto`);
-
-			} else if (userState.step === 3 && (message.mimetype === 'application/pdf' || message.mimetype === 'image/jpeg' || message.mimetype === 'image/png')){
+				case 3:
+					userState.appliesTo = message.body;
+					userState.step = 4;
+					await client.sendText(user, `Ahora puedes enviarme la documentación en PDF o Foto`);
+					break;
 				
-				userState.step = 0; // Finalizar la conversación
-				const media = await client.decryptFile(message);
-				const ext = message.filename.split('.')[1]
-				const fileName = `Documents/${userState.documentType}-${userState.period}.${ext}`;
-				const buffer = await client.decryptFile(message);
-				fs.writeFile(fileName, buffer, (err) => {
-					if (err) throw err;
-					console.log(`Archivo guardado como ${fileName}`);
-				})
-				await client.sendText(user, `Archivo guardado correctamente`);
+				case 4:
+					if(message.mimetype === 'application/pdf' || message.mimetype === 'image/jpeg' || message.mimetype === 'image/png'){
+
+						userState.step = 0; // Finalizar la conversación
+						const media = await client.decryptFile(message);
+						const ext = message.filename.split('.')[1]
+						const fileName = `Documents/${userState.documentType}-${userState.appliesTo}-${userState.period}.${ext}`;
+						const buffer = await client.decryptFile(message);
+						fs.writeFile(fileName, buffer, (err) => {
+							if (err) throw err;
+							console.log(`Archivo guardado como ${fileName}`);
+						})
+
+						await client.sendText(user, `Archivo guardado correctamente`);
+						const exactianBot = new ExactianBot()
+						await exactianBot.launch()
+						await exactianBot.login()
+						await exactianBot.navegate('presentarDocu')
+						await exactianBot.chargeData(userState.documentType, userState.period, userState.appliesTo, fileName)
+						break;
+					}else{
+						await client.sendText(user, `El archivo no es valido vuelve a intentarlo`);
+					}
+
+				default:
+					break;
 			}
+			
 			// Limpiar el estado
-			delete sessionStates[user];
+			//delete sessionStates[user];
 		}
     });
-    //exactian(client, group[0].id.user)
 }
 
 // Crea una función para guardar archivos
