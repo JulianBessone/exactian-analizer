@@ -1,4 +1,4 @@
-const getDocVehi = async (tableDocVehi, page) =>{
+export const getDocVehi = async (tableDocVehi, page) =>{
     //TABLA DE INFORMACIÓN DOCUMENTACIÓN VEHICULOS
     const elementTableInDivDocVehi = await tableDocVehi.$$('tr')
 
@@ -46,6 +46,3 @@ const getDocVehi = async (tableDocVehi, page) =>{
     console.log(docInfoVehi)
     return docInfoVehi
 }
-module.exports = {
-    getDocVehi
-};

@@ -1,12 +1,13 @@
-const venom = require('venom-bot');
-const fs = require('fs');
-const path = require('path');
-const { exactian, ExactianBot } = require('./puppeteer.');
+
+import venom from 'venom-bot'
+import fs from 'fs'
+import path from 'path';
+import ExactianBot from './puppeteer.js'
+
 
 const sessionStates = {};
 
-venom
-  .create({
+venom.create({
     session: 'EXACTIAN-CHAT', //name of session
     multidevice: true, // for version not multidevice use false.(default: true)
     headless: false
@@ -14,7 +15,7 @@ venom
   .then((client) => {start(client)})
   .catch((erro) => {
     console.log(erro);
-  });
+});
 
 const start = async (client)=>{
     // Continuar con las operaciones que requieras, como obtener la lista de chats
@@ -27,7 +28,14 @@ const start = async (client)=>{
 		const user = message.from;
     	const userState = sessionStates[user] || {};
 
-		
+		if(message.body === 'Info empleados') {
+			const exactianBot = new ExactianBot()
+			await exactianBot.launch()
+			await exactianBot.login()
+			await exactianBot.navegate('generalDocu')
+			await exactianBot.getInfoEmployee(client, user)
+			await exactianBot.close()
+		}
 		if (message.body === 'Cargar documentación') {
 			userState.step = 1;
       		sessionStates[user] = userState;
@@ -72,6 +80,7 @@ const start = async (client)=>{
 						await exactianBot.login()
 						await exactianBot.navegate('presentarDocu')
 						await exactianBot.chargeData(userState.documentType, userState.period, userState.appliesTo, fileName)
+						await exactianBot.close()
 						break;
 					}else{
 						await client.sendText(user, `El archivo no es valido vuelve a intentarlo`);
@@ -84,39 +93,5 @@ const start = async (client)=>{
 			// Limpiar el estado
 			//delete sessionStates[user];
 		}
-    });
-}
-
-// Crea una función para guardar archivos
-function saveDocument(nameDocu, contentDocu) {
-
-	// Define la ruta del archivo
-	const directorioProyecto = __dirname;
-	const docPath = directorioProyecto + nameDocu;
-  
-	// Escribe el archivo en el sistema de archivos
-	fs.writeFile(docPath, contentDocu, (error) => {
-	  if (error) {
-		console.error('Error al guardar el archivo:', error);
-	  } else {
-		console.log('Archivo guardado exitosamente:', docPath);
-	  }
-	});
-}
-
-///FUNCION PARA ENVIAR MENSAJES
-
-function sendMessageToWhatsapp(client, message, response) {
-    return new Promise((resolve, reject) => { 
-      client
-      .sendText(message.from, response.text.text[0])
-      .then((result) => {
-        console.log('Result: ', result); //return object success
-        resolve(result);
-      })
-      .catch((erro) => {
-        console.error('Error when sending: ', erro);
-        reject(erro)
-      });
     });
 }

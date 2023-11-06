@@ -1,4 +1,4 @@
-const logginExactian = async (page) =>{
+export const logginExactian = async (page) =>{
     const botonContratista = await page.$('li#opcionContratista a');
 
     await botonContratista.click();
@@ -29,7 +29,7 @@ const logginExactian = async (page) =>{
     }
 }
 
-const oldSiteComeBack = async (page) =>{
+export const oldSiteComeBack = async (page) =>{
     await page.waitForTimeout(2000)
     await page.waitForSelector('button.dropdown-toggle.shadow.user-icon')
     await page.click('button.dropdown-toggle.shadow.user-icon')
@@ -40,13 +40,13 @@ const oldSiteComeBack = async (page) =>{
     await page.waitForTimeout(2000)
 }
 
-const navegationMenu = async (page, destiny) =>{
+export const navegationMenu = async (page, destiny) =>{
     // MENU DOCUMENTACIÓN
-    //await page.waitForTimeout(5000)
+    await page.waitForTimeout(4000)
     //await page.waitForSelector('ul.navbar-nav');
 
-    const liDocu = await page.$('li.nav-item:nth-child(4)'); //elemento que selecciona el apartado de DOCUMENTACION
-    const ulDocs = await page.$$('ul.list-group a'); //accedo a todos los elementos del MENU DESPLEGABLE DE DOCUMENTACION
+    //const liDocu = await page.$('li.nav-item:nth-child(4)'); //elemento que selecciona el apartado de DOCUMENTACION
+    //const ulDocs = await page.$$('ul.list-group a'); //accedo a todos los elementos del MENU DESPLEGABLE DE DOCUMENTACION
 
     
     switch (destiny) {
@@ -71,8 +71,3 @@ const navegationMenu = async (page, destiny) =>{
     await page.waitForTimeout(1000)
 }
 
-module.exports = {
-    logginExactian,
-    navegationMenu,
-    oldSiteComeBack
-};

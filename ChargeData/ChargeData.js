@@ -1,6 +1,7 @@
-const path = require('path');
+import path from 'path';
 
-const chargeDataWpp = async (page, docType, period, appliesTo, documentForCharge) => {
+
+export const chargeDataWpp = async (page, docType, period, appliesTo, documentForCharge) => {
     ////*************************     PASO UNO     ******************************/
     await page.goto('https://pres.exactian.app/ganfenglatam/documentSubmission/globalPresentation'); //NOS DIRIGIMOS AL LINK PARA PRESENTAR DOCU
 
@@ -48,7 +49,7 @@ const chargeDataWpp = async (page, docType, period, appliesTo, documentForCharge
     const fileInput = await page.$('section.bg-dropzone div input');
 
     // Directorio actual de tu proyecto
-    const directorioProyecto = __dirname;
+    const directorioProyecto = './';
     // Nombre del archivo que deseas cargar
     const nombreArchivo = documentForCharge;
     // Construye la ruta completa al archivo
@@ -57,7 +58,7 @@ const chargeDataWpp = async (page, docType, period, appliesTo, documentForCharge
     await fileInput.uploadFile(filePath);
 }
 
-const chargeData = async (page, docuName, appliesTo, documentForCharge, type) =>{
+export const chargeData = async (page, docuName, appliesTo, documentForCharge, type) =>{
     ////*************************     PASO UNO     ******************************/
     await page.goto('https://pres.exactian.app/ganfenglatam/documentSubmission/globalPresentation'); //NOS DIRIGIMOS AL LINK PARA PRESENTAR DOCU
 
@@ -123,9 +124,7 @@ const chargeData = async (page, docuName, appliesTo, documentForCharge, type) =>
 }
 
 
-
-
-const chargeDataOld = async (page, periodo, appliesTo, type) =>{
+export const chargeDataOld = async (page, periodo, appliesTo, type) =>{
     // Espera a que el elemento select esté disponible en la página
     await page.waitForSelector('#periodo');
     // Espera a que el elemento input radio esté disponible en la página
@@ -160,7 +159,3 @@ const chargeDataOld = async (page, periodo, appliesTo, type) =>{
 
 }
 
-module.exports = {
-    chargeData,
-    chargeDataWpp
-}

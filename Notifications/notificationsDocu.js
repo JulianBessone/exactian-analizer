@@ -1,4 +1,4 @@
-const notifyDocEmpleProblems = async (client, groupID, docInfoEmple) => {
+export const notifyDocEmpleProblems = async (client, user, docInfoEmple) => {
     for (const emple of docInfoEmple) {
         const name = emple.nombre
         let problems = ''
@@ -14,7 +14,7 @@ const notifyDocEmpleProblems = async (client, groupID, docInfoEmple) => {
             }
         }
         if(problems){
-            await client.sendText(`${groupID}@g.us`,`
+            await client.sendText(user,`
                 🚨⚠️ *ALERTA EL TRABAJADOR ${name} TIENE LA SIGUIENTE DOCU A REVISAR* ⚠️🚨 
                 \n
                 \n
@@ -24,7 +24,7 @@ const notifyDocEmpleProblems = async (client, groupID, docInfoEmple) => {
         }
     }
 }
-const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
+export const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
     for (const vehi of docInfoVehi) {
         const name = vehi.nombre
         let problems = ''
@@ -50,9 +50,3 @@ const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
         }
     }
 }
-
-
-module.exports = {
-    notifyDocEmpleProblems,
-    notifyDocVehiProblems
-};

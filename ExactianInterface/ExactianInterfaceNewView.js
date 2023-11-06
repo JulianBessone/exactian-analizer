@@ -1,4 +1,4 @@
-const logginExactian = async (page) =>{
+export const logginExactian = async (page) =>{
     const botonContratista = await page.$('li#opcionContratista a');
 
     await botonContratista.click();
@@ -23,7 +23,7 @@ const logginExactian = async (page) =>{
 }
 
 //La idea aquí es que reciba por parametro el destino así va a distintas ubicaciones con la misma fn
-const navegationMenu = async (page, destiny) =>{
+export const navegationMenu = async (page, destiny) =>{
     // MENU DOCUMENTACIÓN
     //await page.waitForTimeout(5000)
     //await page.waitForSelector('ul.navbar-nav');
@@ -59,8 +59,3 @@ const navegationMenu = async (page, destiny) =>{
     }
 
 }
-
-module.exports = {
-    logginExactian,
-    navegationMenu
-};
