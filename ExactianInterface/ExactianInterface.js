@@ -1,4 +1,4 @@
-export const logginExactian = async (page) =>{
+const logginExactian = async (page) =>{
     const botonContratista = await page.$('li#opcionContratista a');
 
     await botonContratista.click();
@@ -29,7 +29,7 @@ export const logginExactian = async (page) =>{
     }
 }
 
-export const oldSiteComeBack = async (page) =>{
+const oldSiteComeBack = async (page) =>{
     await page.waitForTimeout(2000)
     await page.waitForSelector('button.dropdown-toggle.shadow.user-icon')
     await page.click('button.dropdown-toggle.shadow.user-icon')
@@ -40,7 +40,7 @@ export const oldSiteComeBack = async (page) =>{
     await page.waitForTimeout(2000)
 }
 
-export const navegationMenu = async (page, destiny) =>{
+const navegationMenu = async (page, destiny) =>{
     // MENU DOCUMENTACIÓN
     await page.waitForTimeout(4000)
     //await page.waitForSelector('ul.navbar-nav');
@@ -71,3 +71,8 @@ export const navegationMenu = async (page, destiny) =>{
     await page.waitForTimeout(1000)
 }
 
+module.exports = {
+    logginExactian,
+    oldSiteComeBack,
+    navegationMenu
+}

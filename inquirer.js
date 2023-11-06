@@ -1,4 +1,6 @@
-import inquirer from 'inquirer';
+const inquirer = require('inquirer')
+const { venomBot } = require('./index')
+const { leerExcel } = require('./excels')
 
 inquirer.prompt({
     name: 'Menu',
@@ -9,7 +11,9 @@ inquirer.prompt({
 })
     .then(answers => {
         if(answers.Menu === 'Lanzar Bot de WhatsApp'){
-            console.log('YYEEEEY')
+            venomBot()
         }
-  
+        if(answers.Menu === 'Cargar Documentación desde Excel'){
+            leerExcel()
+        }
     })

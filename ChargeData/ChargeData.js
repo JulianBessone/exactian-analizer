@@ -1,7 +1,7 @@
-import path from 'path';
+const path = require('path');
 
 
-export const chargeDataWpp = async (page, docType, period, appliesTo, documentForCharge) => {
+const chargeDataWpp = async (page, docType, period, appliesTo, documentForCharge) => {
     ////*************************     PASO UNO     ******************************/
     await page.goto('https://pres.exactian.app/ganfenglatam/documentSubmission/globalPresentation'); //NOS DIRIGIMOS AL LINK PARA PRESENTAR DOCU
 
@@ -49,7 +49,7 @@ export const chargeDataWpp = async (page, docType, period, appliesTo, documentFo
     const fileInput = await page.$('section.bg-dropzone div input');
 
     // Directorio actual de tu proyecto
-    const directorioProyecto = './';
+    const directorioProyecto = __dirname
     // Nombre del archivo que deseas cargar
     const nombreArchivo = documentForCharge;
     // Construye la ruta completa al archivo
@@ -58,7 +58,7 @@ export const chargeDataWpp = async (page, docType, period, appliesTo, documentFo
     await fileInput.uploadFile(filePath);
 }
 
-export const chargeData = async (page, docuName, appliesTo, documentForCharge, type) =>{
+const chargeData = async (page, docuName, appliesTo, documentForCharge, type) =>{
     ////*************************     PASO UNO     ******************************/
     await page.goto('https://pres.exactian.app/ganfenglatam/documentSubmission/globalPresentation'); //NOS DIRIGIMOS AL LINK PARA PRESENTAR DOCU
 
@@ -124,7 +124,7 @@ export const chargeData = async (page, docuName, appliesTo, documentForCharge, t
 }
 
 
-export const chargeDataOld = async (page, periodo, appliesTo, type) =>{
+const chargeDataOld = async (page, periodo, appliesTo, type) =>{
     // Espera a que el elemento select esté disponible en la página
     await page.waitForSelector('#periodo');
     // Espera a que el elemento input radio esté disponible en la página
@@ -159,3 +159,8 @@ export const chargeDataOld = async (page, periodo, appliesTo, type) =>{
 
 }
 
+module.exports = {
+    chargeData,
+    chargeDataOld,
+    chargeDataWpp
+}

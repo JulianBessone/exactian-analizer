@@ -1,4 +1,4 @@
-export const getDocContra = async (tableDocContra,page) =>{
+const getDocContra = async (tableDocContra,page) =>{
     //TABLA DE INFORMACIÓN DOCUMENTACIÓN CONTRATISTA
     const elementTableInDivDocContra = await tableDocContra.$$('tr')
 
@@ -31,4 +31,8 @@ export const getDocContra = async (tableDocContra,page) =>{
 
     console.log(docInfoContraValue, docInfoContraText)
     return[docInfoContraValue,docInfoContraText]
+}
+
+module.exports = {
+    getDocContra
 }

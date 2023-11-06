@@ -1,4 +1,4 @@
-export const getDocEmple = async (tableDocEmple, page) =>{
+const getDocEmple = async (tableDocEmple, page) =>{
     //TABLA DE INFORMACIÓN DOCUMENTACIÓN EMPLEADOS
     const elementTableInDivDocEmple = await tableDocEmple.$$('tr')
 
@@ -45,4 +45,7 @@ export const getDocEmple = async (tableDocEmple, page) =>{
 
     console.log(docInfoEmple)
     return docInfoEmple
+}
+module.exports = {
+    getDocEmple
 }

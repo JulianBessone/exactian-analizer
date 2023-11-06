@@ -1,4 +1,4 @@
-export const notifyDocEmpleProblems = async (client, user, docInfoEmple) => {
+const notifyDocEmpleProblems = async (client, user, docInfoEmple) => {
     for (const emple of docInfoEmple) {
         const name = emple.nombre
         let problems = ''
@@ -24,7 +24,7 @@ export const notifyDocEmpleProblems = async (client, user, docInfoEmple) => {
         }
     }
 }
-export const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
+const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
     for (const vehi of docInfoVehi) {
         const name = vehi.nombre
         let problems = ''
@@ -49,4 +49,9 @@ export const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
             `)
         }
     }
+}
+
+module.exports = {
+    notifyDocEmpleProblems,
+    notifyDocVehiProblems
 }

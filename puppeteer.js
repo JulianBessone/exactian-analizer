@@ -1,16 +1,18 @@
-import puppeteer from 'puppeteer';
-import { getDocContra } from './DataChecker/docContra.js';
-import { getDocEmple } from './DataChecker/docEmple.js';
-import { getDocVehi } from './DataChecker/docVehi.js';
-import { logginExactian,navegationMenu,oldSiteComeBack } from './ExactianInterface/ExactianInterface.js';
-import { notifyDocEmpleProblems } from './Notifications/notificationsDocu.js';
-import { chargeData,chargeDataWpp } from './ChargeData/ChargeData.js';
+
+const puppeteer = require('puppeteer');
+const { getDocContra } = require('./DataChecker/docContra.js')
+const { getDocEmple } = require('./DataChecker/docEmple.js');
+const { getDocVehi } = require('./DataChecker/docVehi');
+const { logginExactian, navegationMenu, oldSiteComeBack } = require('./ExactianInterface/ExactianInterface');
+const { notifyDocEmpleProblems } = require('./Notifications/notificationsDocu');
+const { chargeData, chargeDataWpp } = require('./ChargeData/ChargeData');
+
 
 
 
 //La funcion crea una instancia de puppeteer y recibe el cliente de WhatsApp, esto con el fin de enviar mensajes a un numero en especifico para avisar de que hay docu vencida o pendiente
 
-export const exactian = async (client, groupID) =>{
+const exactian = async (client, groupID) =>{
     /* ABRIMOS EL NAVEGADOR */
 
     const browser = await puppeteer.launch({
@@ -57,7 +59,7 @@ export const exactian = async (client, groupID) =>{
     //await browser.close();
 }
 
-export default class ExactianBot {
+class ExactianBot {
     constructor() {
         this.browser = null;
         this.page = null;
@@ -110,4 +112,8 @@ export default class ExactianBot {
     async close() {
         await this.browser.close();
     }
+}
+
+module.exports = {
+    ExactianBot
 }

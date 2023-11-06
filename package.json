@@ -2,10 +2,9 @@
   "name": "exactian-analizer",
   "version": "1.0.0",
   "description": "An autochecker and uploader data on exactian plataform",
-  "type": "module",
-  "exports": "./index.js",
+  "main": "inquirer.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node inquirer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,11 +18,11 @@
   },
   "homepage": "https://github.com/JulianBessone/exactian-analizer#readme",
   "dependencies": {
-    "exceljs": "^4.4.0",
-    "inquirer": "^9.2.11",
+    "inquirer": "^8.2.6",
     "moment": "^2.29.4",
     "puppeteer": "^21.4.1",
-    "venom-bot": "^5.0.21"
+    "venom-bot": "^5.0.21",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"
