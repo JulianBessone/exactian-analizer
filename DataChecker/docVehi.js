@@ -20,7 +20,7 @@ const getDocVehi = async (tableDocVehi, page) =>{
         const docDescription = await page.evaluate(textOfDoc => textOfDoc.textContent, textOfDoc);//Obtengo el nombre del emple o de la docu
 
         if(!docDescription || docDescription === ' ' || docDescription.length < 3 || docDescription === 'Correspondiente a clasificación: CAMIONETAS - TRANSPORTE DE PERSONAL'){
-            console.log('esto es un separador')//Si no tiene nombre de docu o emple es un separador por ende termino la iteración de ese elemento 
+            console.log('')//Si no tiene nombre de docu o emple es un separador por ende termino la iteración de ese elemento 
         }else{
             if(!imgGreen && !imgYellow && !imgRed){
                 //Si no tiene imagen es una persona
@@ -43,7 +43,6 @@ const getDocVehi = async (tableDocVehi, page) =>{
         }
     }
 
-    console.log(docInfoVehi)
     return docInfoVehi
 }
 module.exports = {

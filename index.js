@@ -96,6 +96,33 @@ const venomBot = () =>{
 		});
 	}
 }
+
+const venomCheckInfoVehi = (excel) =>{
+	venom.create({
+		session: 'EXACTIAN-CHAT', //name of session
+		multidevice: true, // for version not multidevice use false.(default: true)
+		headless: false
+	  })
+	  .then((client) => {start(client)})
+	  .catch((erro) => {
+		console.log(erro);
+	});
+	const start = async (client)=>{
+		// Continuar con las operaciones que requieras, como obtener la lista de chats
+		const chats = await client.getAllChatsGroups();
+		const group = await chats.filter(c=>c.groupMetadata.subject === 'Cosas importar')
+	
+		await client.sendText(`${group[0].id.user}@g.us`,`MENSAJE DE PRUEBA`)
+		
+		const exactianBot = new ExactianBot()
+		await exactianBot.launch()
+		await exactianBot.login()
+		await exactianBot.navegate('generalDocu')
+		await exactianBot.getInfoEmployee(client, `${group[0].id.user}@g.us`)
+		await exactianBot.close()
+	}
+}
 module.exports = {
-	venomBot
+	venomBot,
+	venomCheckInfoVehi
 }

@@ -19,7 +19,7 @@ const logginExactian = async (page) =>{
     const passInput = await page.$('input#password.form-control')
     await page.waitForTimeout(2000)//espero 2 seg asi la web no peta
     await passInput.press('Enter'); // presiono la tecla enter e ingreso
-    console.log('**********************SESION INICIADA CORRECTAMENTE***************************')
+    console.log('*********************  SESION INICIADA CORRECTAMENTE  **********************')
     await page.waitForTimeout(3000)//espero 2 seg asi la web no peta
     const currentURL = await page.url(); // Obtiene la URL actual de la página
     console.log(currentURL)

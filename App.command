@@ -4,14 +4,44 @@ directorio="dev/exactian-analizer"
 
 # Navega al directorio deseado
 cd "$directorio" 
+clear
 
-echo "Instalando dependencias con npm install..."
-npm install
+echo "
+#
+#
+#
+#      ******                                                    
+#      /*////**                                                   
+#      /*   /**   *****   ******  ******  ******  *******   ***** 
+#      /******   **///** **////  **////  **////**//**///** **///**
+#      /*//// **/*******//***** //***** /**   /** /**  /**/*******
+#      /*    /**/**////  /////** /////**/**   /** /**  /**/**//// 
+#      /******* //****** ******  ****** //******  ***  /**//******
+#      ///////   ////// //////  //////   //////  ///   //  ////// 
+#
+#                      Technologhy Innovations ©
+#        
+#                          Make with 🧠 - 2023
+#
+#
+#
+"
 
-echo "Esperando a que termine la instalación..."
+# Pregunta al usuario si desea instalar las dependencias
+read -p "¿Deseas instalar las dependencias? (S/N): " respuesta
 
-# Espera 5 segundos para asegurarte de que npm install haya terminado
-sleep 180
+if [ "$respuesta" = "S" ] || [ "$respuesta" = "s" ]; then
+    echo "⏱ Instalando dependencias con npm install..."
+    npm install
 
-echo "Iniciando la aplicación con npm start..."
-npm start
+    echo "Esperando a que termine la instalación..."
+
+    # Espera 5 segundos para asegurarte de que npm install haya terminado
+    sleep 120
+
+    echo "Iniciando la aplicación con npm start..."
+    npm start
+else
+    echo "Iniciando la aplicación con npm start..."
+    npm start
+fi

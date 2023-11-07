@@ -20,7 +20,7 @@ const getDocEmple = async (tableDocEmple, page) =>{
         const docDescription = await page.evaluate(textOfDoc => textOfDoc.textContent, textOfDoc);//Obtengo el nombre del emple o de la docu
 
         if(!docDescription){
-            console.log('esto es un separador') //Si no tiene nombre de docu o emple es un separador por ende termino la iteración de ese elemento 
+            console.log('') //Si no tiene nombre de docu o emple es un separador por ende termino la iteración de ese elemento 
         }else{
             if(!imgGreen && !imgYellow && !imgRed){
                 //Si no tiene imagen es una persona
@@ -43,7 +43,6 @@ const getDocEmple = async (tableDocEmple, page) =>{
         }
     }
 
-    console.log(docInfoEmple)
     return docInfoEmple
 }
 module.exports = {
