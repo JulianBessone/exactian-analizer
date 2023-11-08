@@ -1,3 +1,11 @@
+const getDocEmpleByName = (dataEmple, name) => {
+    const result = dataEmple.filter((emple) => {
+        // Comprobamos si el nombre del empleado incluye la cadena de texto
+        return emple.nombre.includes(name.toUpperCase());
+    });
+    return result
+}
+
 const getDocEmple = async (tableDocEmple, page) =>{
     //TABLA DE INFORMACIÓN DOCUMENTACIÓN EMPLEADOS
     const elementTableInDivDocEmple = await tableDocEmple.$$('tr')
@@ -46,5 +54,6 @@ const getDocEmple = async (tableDocEmple, page) =>{
     return docInfoEmple
 }
 module.exports = {
-    getDocEmple
+    getDocEmple,
+    getDocEmpleByName
 }

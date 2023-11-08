@@ -1,3 +1,11 @@
+const getDocVehiByPatent = (dataVehi, patent) => {
+    const result = dataVehi.filter((vehi) => {
+        // Comprobamos si el nombre del empleado incluye la cadena de texto
+        return vehi.nombre.includes(patent.toUpperCase());
+    });
+    return result
+}
+
 const getDocVehi = async (tableDocVehi, page) =>{
     //TABLA DE INFORMACIÓN DOCUMENTACIÓN VEHICULOS
     const elementTableInDivDocVehi = await tableDocVehi.$$('tr')
@@ -46,5 +54,6 @@ const getDocVehi = async (tableDocVehi, page) =>{
     return docInfoVehi
 }
 module.exports = {
-    getDocVehi
+    getDocVehi,
+    getDocVehiByPatent
 }

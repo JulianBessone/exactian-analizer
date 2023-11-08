@@ -1,36 +1,33 @@
-const getDocContra = async (tableDocContra,page) =>{
+const getDocContra = async (tableDocContra, page) =>{
     //TABLA DE INFORMACIÓN DOCUMENTACIÓN CONTRATISTA
     const elementTableInDivDocContra = await tableDocContra.$$('tr')
 
-    const docInfoContraText = [] //Creo un array donde guardaremos a que docu pertenece cada sección
-    const docInfoContraValue = [] //Creo un array donde guardaremos el estado cada docu
-
+    const docInfoContra = {}
 
     await page.waitForTimeout(2000)
     for (const tr of elementTableInDivDocContra) {
         const stateOfDoc = await tr.$('td:first-child')
         const textOfDoc = await tr.$('td:last-child')
         
+        const docDescription = await page.evaluate(textOfDoc => textOfDoc.textContent, textOfDoc);
+
 
         const imgGreen = await stateOfDoc.$('img[src="images/verde.png"]')
         const imgYellow = await stateOfDoc.$('img[src="images/amarillo.png"]')
         const imgRed = await stateOfDoc.$('img[src="images/rojo.png"]')
 
         if(imgGreen){
-            docInfoContraValue.push('Aprobado')
+            docInfoContra[docDescription] = 'Aprobado'
         }
         if(imgYellow){
-            docInfoContraValue.push('Pendiente de Revisión')
+            docInfoContra[docDescription] = 'Pendiente de Revisión'
         }
         if(imgRed){
-            docInfoContraValue.push('No esta presentada')
+            docInfoContra[docDescription] = 'No esta presentada'
         }
-        const docDescription = await page.evaluate(textOfDoc => textOfDoc.textContent, textOfDoc);
-        docInfoContraText.push(docDescription)
     }
 
-    console.log(docInfoContraValue, docInfoContraText)
-    return[docInfoContraValue,docInfoContraText]
+    return docInfoContra
 }
 
 module.exports = {

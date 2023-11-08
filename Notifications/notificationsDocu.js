@@ -1,3 +1,27 @@
+const notifyDocContra = async (client, user, docInfoDoc) => {
+    let problems = ''
+    for (const prop in docInfoDoc) {
+        const element = docInfoDoc[prop];
+        if(element ==='No esta presentada'){
+            problems += `*ALERTA:* ${prop} *SIN PRESENTAR*\n`   
+        }   
+
+        if(element === 'Vencida'){
+            problems += `*ALERTA:* ${prop} *VENCIDA*\n`
+        }
+    }
+    if(problems){
+        await client.sendText(user,`
+            🚨⚠️ *ALERTA LA EMPRESA TIENE LA SIGUIENTE DOCU A REVISAR* ⚠️🚨 
+            \n
+            \n
+            \n
+            ${problems}
+        `)
+    }
+
+}
+
 const notifyDocEmpleProblems = async (client, user, docInfoEmple) => {
     for (const emple of docInfoEmple) {
         const name = emple.nombre
@@ -53,5 +77,6 @@ const notifyDocVehiProblems = async (client, groupID, docInfoVehi) => {
 
 module.exports = {
     notifyDocEmpleProblems,
-    notifyDocVehiProblems
+    notifyDocVehiProblems,
+    notifyDocContra
 }
