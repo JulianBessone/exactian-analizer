@@ -1,11 +1,11 @@
 
 const puppeteer = require('puppeteer');
-const { getDocContra } = require('./DataChecker/docContra.js')
-const { getDocEmple, getDocEmpleByName } = require('./DataChecker/docEmple.js');
-const { getDocVehi, getDocVehiByPatent } = require('./DataChecker/docVehi');
-const { logginExactian, navegationMenu, oldSiteComeBack } = require('./ExactianInterface/ExactianInterface');
+const { getDocContra } = require('./Exactian/DataChecker/docContra.js')
+const { getDocEmple, getDocEmpleByName } = require('./Exactian/DataChecker/docEmple.js');
+const { getDocVehi, getDocVehiByPatent } = require('./Exactian/DataChecker/docVehi');
+const { logginExactian, navegationMenu, oldSiteComeBack } = require('./Exactian/ExactianInterface/ExactianInterface');
 const { notifyDocEmpleProblems, notifyDocVehiProblems, notifyDocContra } = require('./Notifications/notificationsDocu');
-const { chargeData, chargeDataWpp } = require('./ChargeData/ChargeData');
+const { chargeData, chargeDataWpp } = require('./Exactian/ChargeData/ChargeData');
 const { writeExcel } = require('./Excels/writeExel.js');
 
 //La funcion crea una instancia de puppeteer y recibe el cliente de WhatsApp, esto con el fin de enviar mensajes a un numero en especifico para avisar de que hay docu vencida o pendiente
@@ -14,17 +14,17 @@ class ExactianBot {
         this.browser = null;
         this.page = null;
     }
-    async launch() {
+    async launch(account) {
         this.browser = await puppeteer.launch({
              headless: false
              //args: [ '--proxy-server=178.169.139.180:8080']
         }); 
         this.page = await this.browser.newPage();
-        await this.page.goto('https://ganfenglatam.exactian.solutions'); //Accedo a la web de exactian Ganfen 
+        await this.page.goto(account.url ||'https://ganfenglatam.exactian.solutions'); //Accedo a la web de exactian Ganfen 
     }
 
     async login() {
-        await logginExactian(this.page) //Funcion para ingresar a la app.
+        await logginExactian(this.page, account) //Funcion para ingresar a la app.
     }
 
     async navegate(destiny){

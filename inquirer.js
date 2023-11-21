@@ -2,6 +2,7 @@ const inquirer = require('inquirer')
 const { venomBot, venomCheckInfoVehi, venomCheckInfoEmple, venomCheckInfoContra } = require('./index')
 const { leerExcel } = require('./excels')
 const { ExactianBot } = require('./puppeteer')
+const { selectAccount} = require('./Accounts/Accounts')
 
 inquirer.prompt({
     name: 'Menu',
@@ -19,25 +20,40 @@ inquirer.prompt({
         }
         if(answers.Menu === 'Verificar Documentación Empleados'){
             inquirer.prompt({
-                name: 'MenuInfoEmpe',
+                name: 'MenuInfoEmpleProyect',
                 type: 'list',
                 color: 'blue',
-                message: 'Donde deseas recibir la información?',
-                choices: ['WhatsApp', 'Excel']
+                message: 'De que Minera deseas Verificar',
+                choices: ['Sales', 'Pirquitas', 'Livent', 'Eramine', 'Galaxy', 'Litio', 'Litica', 'Lithea', 'Salta Exploraciones', 'Mansfield', 'Exar', 'Unipar']
             })
             .then( async (answers) => {
-                if(answers.MenuInfoEmpe === 'WhatsApp'){
-                    venomCheckInfoEmple()
-                }
-                else{
-                    console.log('...Espera que se inicie el bot de Exactian')
-                    const exactianBot = new ExactianBot()
-                    await exactianBot.launch()
-                    await exactianBot.login()
-                    await exactianBot.navegate('generalDocu')
-                    await exactianBot.getInfoEmployee('', ``, true)
-                    await exactianBot.close()
-                }
+                const proyect = answers.MenuInfoEmpleProyect; //GUARDAMOS EL PROYECTO
+
+                inquirer.prompt({
+                    name: 'MenuInfoEmpe',
+                    type: 'list',
+                    color: 'blue',
+                    message: 'Donde deseas recibir la información?',
+                    choices: ['WhatsApp', 'Excel']
+                })
+                .then( async (answers)=>{
+                    const account = selectAccount(proyect)
+
+                    console.log(account.id, account.pass, account.url)
+
+                    if(answers.MenuInfoEmpe === 'WhatsApp'){
+                        venomCheckInfoEmple(account)
+                    }
+                    else{
+                        console.log('...Espera que se inicie el bot de Exactian')
+                        const exactianBot = new ExactianBot()
+                        await exactianBot.launch()
+                        await exactianBot.login()
+                        await exactianBot.navegate('generalDocu')
+                        await exactianBot.getInfoEmployee('', ``, true)
+                        await exactianBot.close()
+                    }
+                })
             })        
         }
         if(answers.Menu === 'Verificar Documentación Vehiculos'){

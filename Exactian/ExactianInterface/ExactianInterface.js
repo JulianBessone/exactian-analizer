@@ -1,12 +1,12 @@
-const logginExactian = async (page) =>{
+const logginExactian = async (page, account) =>{
     const botonContratista = await page.$('li#opcionContratista a');
 
     await botonContratista.click();
 
     //Credenciales de acceso
 
-    const usuario = '33716427949'
-    const pass = 'Grey1472'
+    const usuario = account.id || '33716427949'
+    const pass = account.pass ||'Grey1472'
 
     //Inputs
     await page.waitForSelector('input#cuit.form-control')
@@ -23,7 +23,7 @@ const logginExactian = async (page) =>{
     await page.waitForTimeout(3000)//espero 2 seg asi la web no peta
     const currentURL = await page.url(); // Obtiene la URL actual de la página
     console.log(currentURL)
-    if (currentURL === 'https://webcont.exactian.app/ganfenglatam/dashboard') {
+    if (currentURL === `https://webcont.exactian.app/${account.name}/dashboard`) {
         await oldSiteComeBack(page)
         console.log('**********************CAMBIANDO A WEB CONT v1***************************')
     }

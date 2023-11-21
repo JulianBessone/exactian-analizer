@@ -131,7 +131,7 @@ const venomCheckInfoContra = (excel) =>{
 	}
 }
 
-const venomCheckInfoEmple = (excel) =>{
+const venomCheckInfoEmple = (account, excel) =>{
 	venom.create({
 		session: 'EXACTIAN-CHAT', //name of session
 		multidevice: true, // for version not multidevice use false.(default: true)
@@ -149,8 +149,8 @@ const venomCheckInfoEmple = (excel) =>{
 		await client.sendText(`${group[0].id.user}@g.us`,`MENSAJE DE PRUEBA`)
 		
 		const exactianBot = new ExactianBot()
-		await exactianBot.launch()
-		await exactianBot.login()
+		await exactianBot.launch(account)
+		await exactianBot.login(account)
 		await exactianBot.navegate('generalDocu')
 		await exactianBot.getInfoEmployee(client, `${group[0].id.user}@g.us`)
 		await exactianBot.close()
