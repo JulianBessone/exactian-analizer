@@ -1,4 +1,3 @@
-
 const venom = require('venom-bot')
 const fs = require('fs')
 const path = require('path')
@@ -34,6 +33,14 @@ const venomBot = () =>{
 				await exactianBot.login()
 				await exactianBot.navegate('generalDocu')
 				await exactianBot.getInfoEmployee(client, user)
+				await exactianBot.close()
+			}
+			if(message.body === 'Info vehículos') {
+				const exactianBot = new ExactianBot()
+				await exactianBot.launch()
+				await exactianBot.login()
+				await exactianBot.navegate('generalDocu')
+				await exactianBot.getInfoVehi(client,user)
 				await exactianBot.close()
 			}
 			if (message.body === 'Cargar documentación') {
