@@ -40,7 +40,7 @@ const oldSiteComeBack = async (page) =>{
     await page.waitForTimeout(2000)
 }
 
-const navegationMenu = async (page, destiny) =>{
+const navegationMenu = async (page, destiny, account) =>{
     // MENU DOCUMENTACIÓN
     await page.waitForTimeout(4000)
     //await page.waitForSelector('ul.navbar-nav');
@@ -54,14 +54,14 @@ const navegationMenu = async (page, destiny) =>{
             //En en menu desplegable
             //const generalDetail = ulDocs[1] //voy a la info general
             //await generalDetail.click(); // le hago click
-            await page.goto('https://ganfenglatam.exactian.solutions/webcont/index.php?section=20')//Aqui en vez de hacer click en el menu de navegación hemos resulto que lo mejor seria decirle al navegador que se dirija a esa url
+            await page.goto(`https://${account.name}.exactian.solutions/webcont/index.php?section=20`)//Aqui en vez de hacer click en el menu de navegación hemos resulto que lo mejor seria decirle al navegador que se dirija a esa url
             await page.waitForTimeout(5000)
             console.log('ESTAMOS EN EL MENU DE RESUMEN GENERAL')
             break;
         case 'presentarDocu':
             //En en menu desplegable
             //await presentarDocuLI.click(); // le hago click
-            await page.goto('https://ganfenglatam.exactian.solutions/webcontv2/Controllers/WebcontPageController/appRedirect/SUBMISSIONS')
+            await page.goto(`https://${account.name}.exactian.solutions/webcontv2/Controllers/WebcontPageController/appRedirect/SUBMISSIONS`)
             await page.waitForTimeout(5000)
             console.log('ESTAMOS EN EL MENU DE PRESENTACIONES DE DOCU')
             break;

@@ -3,6 +3,7 @@ const { venomBot, venomCheckInfoVehi, venomCheckInfoEmple, venomCheckInfoContra 
 const { leerExcel } = require('./excels')
 const { ExactianBot } = require('./puppeteer')
 const { selectAccount} = require('./Accounts/Accounts')
+const { checkTypePlattaform } = require('./Checkers/Checkers')
 
 inquirer.prompt({
     name: 'Menu',
@@ -41,18 +42,7 @@ inquirer.prompt({
 
                     console.log(account.id, account.pass, account.url)
 
-                    if(answers.MenuInfoEmpe === 'WhatsApp'){
-                        venomCheckInfoEmple(account)
-                    }
-                    else{
-                        console.log('...Espera que se inicie el bot de Exactian')
-                        const exactianBot = new ExactianBot()
-                        await exactianBot.launch()
-                        await exactianBot.login()
-                        await exactianBot.navegate('generalDocu')
-                        await exactianBot.getInfoEmployee('', ``, true)
-                        await exactianBot.close()
-                    }
+                    checkTypePlattaform(account, answers.MenuInfoEmpe)                
                 })
             })        
         }

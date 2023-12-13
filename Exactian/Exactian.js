@@ -1,14 +1,12 @@
-
 const puppeteer = require('puppeteer');
-const { getDocContra } = require('./Exactian/DataChecker/docContra.js')
-const { getDocEmple, getDocEmpleByName } = require('./Exactian/DataChecker/docEmple.js');
-const { getDocVehi, getDocVehiByPatent } = require('./Exactian/DataChecker/docVehi');
-const { logginExactian, navegationMenu, oldSiteComeBack } = require('./Exactian/ExactianInterface/ExactianInterface');
-const { notifyDocEmpleProblems, notifyDocVehiProblems, notifyDocContra } = require('./Notifications/notificationsDocu');
-const { chargeData, chargeDataWpp } = require('./Exactian/ChargeData/ChargeData');
-const { writeExcel } = require('./Excels/writeExel.js');
+const { getDocContra } = require('./DataChecker/docContra.js')
+const { getDocEmple, getDocEmpleByName } = require('./DataChecker/docEmple.js');
+const { getDocVehi, getDocVehiByPatent } = require('./DataChecker/docVehi');
+const { logginExactian, navegationMenu, oldSiteComeBack } = require('./ExactianInterface/ExactianInterface');
+const { notifyDocEmpleProblems, notifyDocVehiProblems, notifyDocContra } = require('../Notifications/notificationsDocu');
+const { chargeData, chargeDataWpp } = require('./ChargeData/ChargeData');
+const { writeExcel } = require('../Excels/writeExel.js');
 
-//La funcion crea una instancia de puppeteer y recibe el cliente de WhatsApp, esto con el fin de enviar mensajes a un numero en especifico para avisar de que hay docu vencida o pendiente
 class ExactianBot {
     constructor() {
         this.browser = null;
