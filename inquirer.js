@@ -42,7 +42,7 @@ inquirer.prompt({
 
                     console.log(account.id, account.pass, account.url)
 
-                    checkTypePlattaform(account, answers.MenuInfoEmpe)                
+                    checkTypePlattaform(account, answers.MenuInfoEmpe, 'empleados')                
                 })
             })        
         }

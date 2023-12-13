@@ -2,7 +2,7 @@ const { venomCheckInfoEmple } = require('../index');
 const { ExactianBot } = require('../Exactian/Exactian');
 const { MinexusBot } = require('../Minexus/minexus');
 
-const checkTypePlattaform = async (account, outputSendInfo) => {
+const checkTypePlattaform = async (account, outputSendInfo, type) => {
     switch (account.type) {
         case 'Sicop':
             
@@ -16,6 +16,11 @@ const checkTypePlattaform = async (account, outputSendInfo) => {
                 const minexusBot = new MinexusBot()
                 await minexusBot.launch(account)
                 await minexusBot.login(account)
+
+                if(type === 'empleados'){
+                    await minexusBot.personalInfoCheck()
+                }
+
                 await minexusBot.close()
             }
             break;

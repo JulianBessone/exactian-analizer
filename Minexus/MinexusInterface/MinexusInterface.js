@@ -12,7 +12,8 @@ const logginMinexus = async (page, account) =>{
     await page.type('input#email', usuario);
     await page.type('input#password', pass);
 
-    await page.click('input#login')
+    await page.waitForSelector('button#login')
+    await page.click('button#login')
 
     await page.waitForTimeout(3000)
     await page.goto('https://login.minexus.net/codin')
@@ -30,6 +31,16 @@ const logginMinexus = async (page, account) =>{
         await page.waitForTimeout(10000)
     }
 }
+const navigateMinexus = async (page, where) =>{
+    switch (where) {
+        case 'empleados':
+            await page.goto('https://eramine.codin.minexus.net/proveedores/staff')
+            await page.waitForTimeout(10000)
+        default:
+            break;
+    }
+}
 module.exports = {
     logginMinexus,
+    navigateMinexus
 }
