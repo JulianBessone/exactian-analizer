@@ -23,7 +23,7 @@ const logginMinexus = async (page, account) =>{
     const divElementButtonsOptions = await page.$$('div.d-flex.flex-wrap.justify-content-center.align-items-center button');
 
     if(account.name === 'eramine'){
-        await divElementButtonsOptions[1].click();
+        await divElementButtonsOptions[2].click();
         await page.waitForTimeout(10000)
     }
     if(account.name === 'livent'){
@@ -34,13 +34,16 @@ const logginMinexus = async (page, account) =>{
 const navigateMinexus = async (page, where) =>{
     switch (where) {
         case 'empleados':
-            await page.goto('https://eramine.codin.minexus.net/proveedores/staff')
-            await page.waitForTimeout(10000)
+            //await page.goto('https://eramine.codin.minexus.net/proveedores/staff')
+            //await page.waitForTimeout(10000)
+            await page.goto('https://eramine.codin.minexus.net/proveedores/entrances')     
+            await page.waitForTimeout(40000)
         default:
             break;
     }
 }
+
 module.exports = {
     logginMinexus,
-    navigateMinexus
+    navigateMinexus,
 }
