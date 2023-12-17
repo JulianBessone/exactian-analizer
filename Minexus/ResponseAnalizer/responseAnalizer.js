@@ -1,6 +1,6 @@
 const { writeExcelMinexusEmployees } = require("../../Excels/writeExel");
 
-const responseAnalizer = async (response) => {
+const responseAnalizerEmployees = async (response) => {
     if(response.url() === 'https://eramine.codin.minexus.net/proxy/staff/all_staff') {
         const responseBody = await response.text();
         const jsonResponse = JSON.parse(responseBody);
@@ -17,6 +17,12 @@ const responseAnalizer = async (response) => {
                 employee.dni = e.staff.dni //dni 
                 employee.generalReason = []  // Lista de obj de motivos generales rechazados
                 employee.contractsReason = {}  // Lista de obj de motivos contractuales rechazados
+                /*
+                    {
+                        12355: [{constancia: Rechazado}, {capacitacion: Rechazado}],
+                        2222: [{constancia: Rechazado}, {capacitacion: Rechazado}],
+                    }
+                */
 
                 e.motivo.forEach(obj => {
                     if(!obj.Contract){
@@ -24,13 +30,13 @@ const responseAnalizer = async (response) => {
                         const decodedKey = JSON.parse(`"${key}"`);
                         const tempObj = {};
                         tempObj[decodedKey] = obj[key];
-                        
+
                         employee.generalReason.push(tempObj)
                         return
                     }
 
                     const reason = {}
-                    reason[obj.data.name] = obj.data.Status
+                    reason[obj.data.name] = obj.data.Status //{constancia: Rechazado}
                     if(!employee.hasOwnProperty(obj.Contract.sap_id)){ employee.contractsReason[obj.Contract.sap_id] = [] }
                     employee.contractsReason[obj.Contract.sap_id].push(reason)                 
                 });
@@ -41,7 +47,36 @@ const responseAnalizer = async (response) => {
     }  
 }
 
+const responseAnalizerVehi = async (response) => {
+    if(response.url() === 'https://eramine.codin.minexus.net/proxy/vehicles/entrance') {
+        const responseBody = await response.text();
+        const jsonResponse = JSON.parse(responseBody);
 
+        const vehiNotAllowedList = []; //Lista de vehiculos rechazados
+
+        await jsonResponse.map( (vehi) =>{
+            if(vehi.estado === 'rechazado' || vehi.estado === 'Rechazado'){
+                const vehiculo = {}
+
+                vehiculo.marca = vehi.marca;
+                vehiculo.modelo = vehi.modelo;
+                vehiculo.anio = vehi.anio;
+                vehiculo.patente = vehi.patente;
+                vehiculo.estado = vehi.estado;
+                vehiculo.motivo = []
+
+                vehi.motivo.map((motivo) => {
+                    const key = Object.keys(motivo)[0];
+                    const decodedKey = JSON.parse(`"${key}"`);
+                    vehiculo.motivo.push(`${decodedKey}: ${motivo[key]}`)
+                })
+
+                vehiNotAllowedList.push(vehiculo)
+            }
+        })
+        console.log(vehiNotAllowedList)
+    }
+}
 
 const responseAnalizerClg = async (response) => {
     if(response.url() === 'https://eramine.codin.minexus.net/proxy/staff/all_staff') {
@@ -76,5 +111,6 @@ const responseAnalizerClg = async (response) => {
 }
 
 module.exports = {
-    responseAnalizer
+    responseAnalizerEmployees,
+    responseAnalizerVehi
 }

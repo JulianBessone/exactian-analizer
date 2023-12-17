@@ -3,6 +3,7 @@ const { ExactianBot } = require('../Exactian/Exactian');
 const { MinexusBot } = require('../Minexus/minexus');
 
 const checkTypePlattaform = async (account, outputSendInfo, type) => {
+    
     switch (account.type) {
         case 'Sicop':
             
@@ -19,6 +20,18 @@ const checkTypePlattaform = async (account, outputSendInfo, type) => {
 
                 if(type === 'empleados'){
                     await minexusBot.personalInfoCheck()
+                }
+                if(type === 'vehiculos'){
+                    await minexusBot.vehiculosInfoCheck()
+                }
+                if(type === 'empresa'){
+                    console.log('modulo inactivo')
+                }
+                if(type === 'filterEmployee'){
+                    console.log('modulo inactivo')
+                }
+                if(type === 'filterVehi'){
+                    console.log('modulo inactivo')
                 }
 
                 await minexusBot.close()

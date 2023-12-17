@@ -46,7 +46,7 @@ const writeExcelMinexusEmployees = async (data) => {
 
     // Definir la estructura de la primera fila con los encabezados
     const headers = ['Nombre', 'Apellido', 'DNI', 'Estado General', 'Motivos Generales', 'Estado Contractual 1', 'Motivos Contractuales 1', 'Estado Contractual 2', 'Motivos Contractuales 2', 'Estado Contractual 3', 'Motivos Contractuales 3'];
-    worksheet.range('A1:G1').value([headers]);
+    worksheet.range('A1:K1').value([headers]);
 
     // Llenar las filas con los datos
     data.forEach((person, index) => {
@@ -63,21 +63,31 @@ const writeExcelMinexusEmployees = async (data) => {
                 generalReason = generalReason + `\n -${key}: ${reason[key]}`
             })
             worksheet.cell(`E${row}`).value(generalReason)
+        }else {
+            worksheet.cell(`D${row}`).value('Aprobado')
         }
+
         if(Object.keys(person.contractsReason).length !== 0){
+
+            let columnCode = 70; // Código ASCII para la letra 'F' que es la columna donde empiezan la info de contratos
+
             for (const contract in person.contractsReason) {
-                
+
+                const element = person.contractsReason[contract];
+                worksheet.cell(`${String.fromCharCode(columnCode)}${row}`).value(`Rechazado ${contract}`)
+                let contractReason = ''
+                element.forEach(reason => {
+                    const key = Object.keys(reason)[0];
+                    contractReason = contractReason + `\n -${key}: ${reason[key]}`
+                    
+                })
+                worksheet.cell(`${String.fromCharCode(columnCode + 1)}${row}`).value(contractReason);
+                columnCode += 2;
             }
+        }else {
+            worksheet.cell(`F${row}`).value(`Aprobado`)    
         }
-
-        /*
-        worksheet.cell(`D${row}`).value(person.generalReason[0]['Declaración de Salud Ocupacional']);
-        worksheet.cell(`E${row}`).value(Object.values(person.generalReason[0])[0]);
-        worksheet.cell(`F${row}`).value(person.contractsReason['5400150734'][0]);
-        worksheet.cell(`G${row}`).value(person.contractsReason['5400150734'][1]);
-        */
     });
-
     // Guardar el archivo
     await workbook.toFileAsync('data.xlsx');
     console.log('Excel generado exitosamente.');

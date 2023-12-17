@@ -16,9 +16,27 @@ inquirer.prompt({
         if(answers.Menu === 'Lanzar Bot de WhatsApp'){
             venomBot()
         }
+        
+        //***************        CARGAR DOCUMENTACION      *****************/  
+
+
         if(answers.Menu === 'Cargar Documentación desde Excel'){
+            inquirer.prompt({
+                name: 'MenuChargeDataInfo',
+                type: 'list',
+                color: 'blue',
+                message: 'De que Minera deseas Verificar',
+                choices: ['Sales', 'Pirquitas', 'Livent', 'Eramine', 'Galaxy', 'Litio', 'Litica', 'Lithea', 'Salta Exploraciones', 'Mansfield', 'Exar', 'Unipar']
+            })
+            .then( async (answers) => {
+                const proyect = answers.MenuChargeDataInfo; //GUARDAMOS EL PROYECTO
+            })
             leerExcel()
         }
+
+         //***************        VERIFICAR DOCUMENTACION EMPLEADOS     *****************/  
+
+
         if(answers.Menu === 'Verificar Documentación Empleados'){
             inquirer.prompt({
                 name: 'MenuInfoEmpleProyect',
@@ -46,29 +64,41 @@ inquirer.prompt({
                 })
             })        
         }
+
+         //***************        VERIFICAR DOCUMENTACION VEHICULOS     *****************/  
+
+
         if(answers.Menu === 'Verificar Documentación Vehiculos'){
             inquirer.prompt({
-                name: 'MenuInfoVehi',
+                name: 'MenuInfoVehiProyect',
                 type: 'list',
                 color: 'blue',
-                message: 'Donde deseas recibir la información?',
-                choices: ['WhatsApp', 'Excel']
+                message: 'De que Minera deseas Verificar',
+                choices: ['Sales', 'Pirquitas', 'Livent', 'Eramine', 'Galaxy', 'Litio', 'Litica', 'Lithea', 'Salta Exploraciones', 'Mansfield', 'Exar', 'Unipar']
             })
-            .then( async (answers) => {
-                if(answers.MenuInfoVehi === 'WhatsApp'){
-                    venomCheckInfoVehi()
-                }
-                else{
-                    console.log('...Espera que se inicie el bot de Exactian')
-                    const exactianBot = new ExactianBot()
-                    await exactianBot.launch()
-                    await exactianBot.login()
-                    await exactianBot.navegate('generalDocu')
-                    await exactianBot.getInfoVehi('', ``, true)
-                    await exactianBot.close()
-                }
+            .then( async (answers)=>{
+                const proyect = answers.MenuInfoVehiProyect; //GUARDAMOS EL PROYECTO
+
+                inquirer.prompt({
+                    name: 'MenuInfoVehi',
+                    type: 'list',
+                    color: 'blue',
+                    message: 'Donde deseas recibir la información?',
+                    choices: ['WhatsApp', 'Excel']
+                })
+                .then( async (answers) => {
+                    const account = selectAccount(proyect)
+    
+                        console.log(account.id, account.pass, account.url)
+    
+                        checkTypePlattaform(account, answers.MenuInfoVehi, 'vehiculos')   
+                })
             })
+            
         }
+
+         //***************        VERIFICAR DOCUMENTACION EMPRESA     *****************/  
+
         if(answers.Menu === 'Verificar Documentación Empresa'){
             inquirer.prompt({
                 name: 'MenuInfoContra',
