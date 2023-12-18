@@ -149,15 +149,32 @@ inquirer.prompt({
                     message: 'Ingrese patente:',
                 })
                 .then(async (patenteAnswers) => {
-                    // Puedes llamar a funciones o métodos específicos para esta tarea.
-                    console.log(`Verificando la documentación de ${patenteAnswers.nombreVehiculo}...`);
-                    console.log('...Espera que se inicie el bot de Exactian')
-                    const exactianBot = new ExactianBot()
-                    await exactianBot.launch()
-                    await exactianBot.login()
-                    await exactianBot.navegate('generalDocu')
-                    await exactianBot.getInfoVehi('', '', false, patenteAnswers.nombreVehiculo)
-                    await exactianBot.close()
+                    const patente = patenteAnswers.nombreVehiculo
+
+                    inquirer.prompt({
+                        name: 'MenuInfoOneVehiProyect',
+                        type: 'list',
+                        message: 'De que Minera deseas Verificar',
+                        choices: ['Sales', 'Pirquitas', 'Livent', 'Eramine', 'Galaxy', 'Litio', 'Litica', 'Lithea', 'Salta Exploraciones', 'Mansfield', 'Exar', 'Unipar']
+                    })
+                    .then( async (answers)=>{
+                        const proyect = answers.MenuInfoOneVehiProyect; //GUARDAMOS EL PROYECTO
+        
+                        inquirer.prompt({
+                            name: 'MenuInfoOneVehi',
+                            type: 'list',
+                            color: 'blue',
+                            message: 'Donde deseas recibir la información?',
+                            choices: ['WhatsApp', 'Excel']
+                        })
+                        .then( async (answers) => {
+                            const account = selectAccount(proyect)
+            
+                                console.log(account.id, account.pass, account.url)
+            
+                                checkTypePlattaform(account, answers.MenuInfoOneVehi, 'filterVehi', patente)   
+                        })
+                    })
                 });
         }
         if(answers.Menu === 'Cerrar'){

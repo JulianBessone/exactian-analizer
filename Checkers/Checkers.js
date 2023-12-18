@@ -2,7 +2,7 @@ const { venomCheckInfoEmple } = require('../index');
 const { ExactianBot } = require('../Exactian/Exactian');
 const { MinexusBot } = require('../Minexus/minexus');
 
-const checkTypePlattaform = async (account, outputSendInfo, type) => {
+const checkTypePlattaform = async (account, outputSendInfo, type, oneInfo) => {
     
     switch (account.type) {
         case 'Sicop':
@@ -31,7 +31,7 @@ const checkTypePlattaform = async (account, outputSendInfo, type) => {
                     console.log('modulo inactivo')
                 }
                 if(type === 'filterVehi'){
-                    console.log('modulo inactivo')
+                    await minexusBot.vehiculosInfoCheck(oneInfo)
                 }
 
                 await minexusBot.close()

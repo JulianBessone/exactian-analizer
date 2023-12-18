@@ -6,6 +6,8 @@ class MinexusBot {
     constructor() {
         this.browser = null;
         this.page = null;
+        this.employees = null;
+        this.vehi = null
     }
 
     async launch(account) {
@@ -19,7 +21,7 @@ class MinexusBot {
     }
 
     //Analizaremos las response request del navegador
-    async requestAnalizer(type){
+    async requestAnalizer(type, oneInfo){ // el parametro oneInfo se utiliza para filtrar por DNI o por Patente
         if(type === 'trabajadores'){
             this.page.on('response',async (response) =>{
                 responseAnalizerEmployees(response)
@@ -27,7 +29,7 @@ class MinexusBot {
         }
         if(type === 'vehiculos'){
             this.page.on('response',async (response) =>{
-                responseAnalizerVehi(response)
+                responseAnalizerVehi(response, oneInfo) //Recibe oneInfo para filtrar por Patente si no lo incluye muestra la info de todos los vehi
             })
         }
     }
@@ -40,8 +42,8 @@ class MinexusBot {
         this.requestAnalizer('trabajadores')
         await navigateMinexus(this.page,'empleados')
     }
-    async vehiculosInfoCheck(){
-        this.requestAnalizer('vehiculos')
+    async vehiculosInfoCheck(patente){
+        this.requestAnalizer('vehiculos', patente)
         await navigateMinexus(this.page,'vehiculos')
     }
 

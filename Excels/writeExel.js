@@ -49,14 +49,18 @@ const writeExcelMinexusEmployees = async (data) => {
     worksheet.range('A1:K1').value([headers]);
 
     // Llenar las filas con los datos
-    data.forEach((person, index) => {
+    await data.forEach((person, index) => {
         const row = index + 2; // Empezar desde la fila 2 (fila 1 es para los encabezados)
 
         worksheet.cell(`A${row}`).value(person.name);
         worksheet.cell(`B${row}`).value(person.lastName);
         worksheet.cell(`C${row}`).value(person.dni);
         if(person.generalReason.length > 0){
-            worksheet.cell(`D${row}`).value('Rechazado')
+            //Celda de Docu General
+            const currentCell = worksheet.cell(`D${row}`);
+            currentCell.value('Rechazado')
+            currentCell.style('fill', 'ff0000');
+
             let generalReason = ''
             person.generalReason.forEach(reason => {
                 const key = Object.keys(reason)[0];
@@ -64,7 +68,9 @@ const writeExcelMinexusEmployees = async (data) => {
             })
             worksheet.cell(`E${row}`).value(generalReason)
         }else {
-            worksheet.cell(`D${row}`).value('Aprobado')
+            const currentCell = worksheet.cell(`D${row}`);
+            currentCell.value('Aprobado')
+            currentCell.style('fill', '008000');
         }
 
         if(Object.keys(person.contractsReason).length !== 0){
@@ -74,7 +80,11 @@ const writeExcelMinexusEmployees = async (data) => {
             for (const contract in person.contractsReason) {
 
                 const element = person.contractsReason[contract];
-                worksheet.cell(`${String.fromCharCode(columnCode)}${row}`).value(`Rechazado ${contract}`)
+                //Columna de docu de cada contrato
+                const currentCell = worksheet.cell(`${String.fromCharCode(columnCode)}${row}`)
+                currentCell.value(`Rechazado ${contract}`)
+                currentCell.style('fill', 'ff0000');
+
                 let contractReason = ''
                 element.forEach(reason => {
                     const key = Object.keys(reason)[0];
@@ -85,17 +95,54 @@ const writeExcelMinexusEmployees = async (data) => {
                 columnCode += 2;
             }
         }else {
-            worksheet.cell(`F${row}`).value(`Aprobado`)    
+            worksheet.cell(`F${row}`).value(`Aprobado`).style('fill', '008000')    
         }
     });
+
     // Guardar el archivo
     await workbook.toFileAsync('data.xlsx');
     console.log('Excel generado exitosamente.');
 }
 
+const writeExcelMinexusVehi = async (data) => {
+    const workbook = await XlsxPopulate.fromBlankAsync();
+    const worksheet = workbook.sheet('Sheet1');
+    // Definir la estructura de la primera fila con los encabezados
+    const headers = ['Patente', 'Modelo', 'Marca', 'Año', 'Estado', 'Motivo'];
+    worksheet.range('A1:F1').value([headers]);
+
+    // Llenar las filas con los datos
+    data.forEach((vehi, index) => {
+        const row = index + 2; // Empezar desde la fila 2 (fila 1 es para los encabezados)
+        worksheet.cell(`A${row}`).value(vehi.patente);
+        worksheet.cell(`B${row}`).value(vehi.modelo);
+        worksheet.cell(`C${row}`).value(vehi.marca);
+        worksheet.cell(`D${row}`).value(vehi.anio);
+        if(vehi.motivo.length > 0){
+
+            const currentCell = worksheet.cell(`E${row}`)
+            currentCell.value('Rechazado');
+            currentCell.style('fill', 'ff0000')
+
+            let contractReasonVehi = ''
+            vehi.motivo.map((m)=>{
+                contractReasonVehi = contractReasonVehi + `\n -${m}`
+            })
+            
+        }else{
+            const currentCell = worksheet.cell(`E${row}`)
+            currentCell.value('Aprobado');
+            currentCell.style('fill', '008000')
+        }
+    })
+    // Guardar el archivo
+    await workbook.toFileAsync('Analisis de Documentacion Vehicular Minexus.xlsx');
+    console.log('Excel generado exitosamente.');
+}
 
 module.exports = {
     writeExcel,
-    writeExcelMinexusEmployees
+    writeExcelMinexusEmployees,
+    writeExcelMinexusVehi
 }
 

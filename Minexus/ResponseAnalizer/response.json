@@ -1,0 +1,1283 @@
+[
+  {
+    "id": 129,
+    "marca": "MERCEDES BENZ",
+    "modelo": "ATRON 1720",
+    "anio": 2013,
+    "patente": "NAK541",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      },
+      {
+        "RUTA": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "marca": "TOYOTA",
+    "modelo": "HILUX 4X2",
+    "anio": 2018,
+    "patente": "AC960FQ",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "marca": "Toyota",
+    "modelo": "HILUX 4X2 C/S",
+    "anio": 2014,
+    "patente": "OFA116",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      },
+      {
+        "Certificado jaula antivuelco": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "marca": "TOYOTA",
+    "modelo": "HILUX 4X4 D/C",
+    "anio": 2021,
+    "patente": "AE898VD",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 403,
+    "marca": "TOYOTA",
+    "modelo": "HILUX 4X2",
+    "anio": 2021,
+    "patente": "AE898VH",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 665,
+    "marca": "NISSAN",
+    "modelo": "FRONTIER",
+    "anio": 2019,
+    "patente": "AD158TX",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 1391,
+    "marca": "TOYOTA",
+    "modelo": "HILUX 4X4 C/S",
+    "anio": 2020,
+    "patente": "AE228JB",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Certificado jaula antivuelco": "Estado Rechazado"
+      }
+    ]
+  },
+  {
+    "id": 1707,
+    "marca": "SCANIA",
+    "modelo": "G410 A6X2",
+    "anio": 2021,
+    "patente": "AE760XV",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 1708,
+    "marca": "MARCELINI",
+    "modelo": "SRC16NA",
+    "anio": 2020,
+    "patente": "AE289TV",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      },
+      {
+        "RUTA": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 1801,
+    "marca": "FORD",
+    "modelo": "RANGER DC 4X4 XL 2.2L D",
+    "anio": 2022,
+    "patente": "AF301GQ",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 1802,
+    "marca": "FORD ",
+    "modelo": "RANGER DC 4X4 XL 2.2L D",
+    "anio": 2022,
+    "patente": "AF301GR",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 1996,
+    "marca": "NAVARRO HNOS",
+    "modelo": "SEMIRREMOLQUE DE 2 EJES",
+    "anio": 2020,
+    "patente": "AE323VO",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2006,
+    "marca": "SCANIA",
+    "modelo": "G410 A4X2",
+    "anio": 2021,
+    "patente": "AE742TJ",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2007,
+    "marca": "NAVARRO HNOS",
+    "modelo": "SEMIRREMOLQUE 3 EJES",
+    "anio": 2016,
+    "patente": "AA395KB",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2009,
+    "marca": "SOLA Y BRUSA",
+    "modelo": "BARANDA VOLCABLE 3 EJES 1 ",
+    "anio": 2016,
+    "patente": "AA376XH",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 2089,
+    "marca": "PEUGEOT",
+    "modelo": "BOXER PREMIUM 2.2 HDI 440 L4H2 130",
+    "anio": 2022,
+    "patente": "AF601ZU",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2101,
+    "marca": "SCANIA",
+    "modelo": "G410 A6X2",
+    "anio": 2020,
+    "patente": "AE247HQ",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2106,
+    "marca": "SOLA Y BRUSA",
+    "modelo": "BDAS. VOLC. 3 EJES 1 DESPLAZ. SUSP.",
+    "anio": 2016,
+    "patente": "PHZ889",
+    "tipo_vehiculo": "Acoplado",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2116,
+    "marca": "CATERPILLAR",
+    "modelo": "416F2",
+    "anio": 2017,
+    "patente": "DQB21",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "estado": "no asignado"
+  },
+  {
+    "id": 2119,
+    "marca": "SCANIA",
+    "modelo": "G410 A6X2",
+    "anio": 2021,
+    "patente": "AE654AG",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2123,
+    "marca": "HAULOTTE",
+    "modelo": "HTL 5210",
+    "anio": 2019,
+    "patente": "2061269",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2126,
+    "marca": "SOLA Y BRUSA",
+    "modelo": "BDAS. VOLC. 3 EJES 1 DESPLAZ. SUSP.",
+    "anio": 2015,
+    "patente": "PHS005",
+    "tipo_vehiculo": "Acoplado",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2130,
+    "marca": "SCANIA",
+    "modelo": "G410 A6X2",
+    "anio": 2021,
+    "patente": "AE582CP",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2139,
+    "marca": "VOLKSWAGEN",
+    "modelo": "19320E",
+    "anio": 2011,
+    "patente": "KNB766",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 2154,
+    "marca": "BRUMBY",
+    "modelo": "BRFD25-G51",
+    "anio": 2021,
+    "patente": "2102124",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "estado": "no asignado"
+  },
+  {
+    "id": 2172,
+    "marca": "VOLKSWAGEN",
+    "modelo": "AMAROK TRENDLINE 4X4 2.0L TDI ",
+    "anio": 2022,
+    "patente": "AF578MP",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 2186,
+    "marca": "MARCELINI",
+    "modelo": "SRC8N",
+    "anio": 2005,
+    "patente": "FDC822",
+    "tipo_vehiculo": "Acoplado",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "estado": "no asignado"
+  },
+  {
+    "id": 2196,
+    "marca": "VOLKSWAGEN",
+    "modelo": "AMAROK TRENDLINE 4X4 2.0L TDI 140 CV",
+    "anio": 2022,
+    "patente": "AF666UK",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 2209,
+    "marca": "SCANIA",
+    "modelo": "G500 A6X2",
+    "anio": 2023,
+    "patente": "AF803AK",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2296,
+    "marca": "CHEVROLET",
+    "modelo": "S10 2.8 TD 4X4 LS",
+    "anio": 2021,
+    "patente": "AE966OQ",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 2303,
+    "marca": "VOLKSWAGEN",
+    "modelo": "AMAROK COMFORTLINE 4X4 AUT V6 3.0L 258 CV",
+    "anio": 2022,
+    "patente": "AF616SJ",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2309,
+    "marca": "PEUGEOT",
+    "modelo": "BOXER PREMIUM 2.2 HDI 440 L4H2 130",
+    "anio": 2022,
+    "patente": "AF619AY",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2343,
+    "marca": "SOLA Y BRUSA",
+    "modelo": "SEMIRREMOLQUE CISTERNA DE 3 EJES",
+    "anio": 2016,
+    "patente": "AA376XF",
+    "tipo_vehiculo": "Acoplado",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2371,
+    "marca": "SCANIA",
+    "modelo": "G450 A6X2",
+    "anio": 2021,
+    "patente": "AE877JI",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2458,
+    "marca": "HAULOTTE",
+    "modelo": "HA 16 RTJ",
+    "anio": 2014,
+    "patente": "CUW74",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2471,
+    "marca": "VOLKSWAGEN",
+    "modelo": "17280 LR",
+    "anio": 2018,
+    "patente": "AC632SO",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      },
+      {
+        "RUTA": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 2479,
+    "marca": "SCANIA",
+    "modelo": "S450 A6X2",
+    "anio": 2020,
+    "patente": "AE337IK",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 2524,
+    "marca": "VOLKSWAGEN",
+    "modelo": "AMAROK COMFORTLINE 4X4 AUT V6 3.0L 258 CV",
+    "anio": 2022,
+    "patente": "AF711TF",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 3302,
+    "marca": "SOLA Y BRUSA",
+    "modelo": "SEMIRREMOLQUE ",
+    "anio": 2015,
+    "patente": "PHS003",
+    "tipo_vehiculo": "Acoplado",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 3762,
+    "marca": "VOLVO",
+    "modelo": "FH 440 4X2T",
+    "anio": 2016,
+    "patente": "PMB712",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 5522,
+    "marca": "SCANIA",
+    "modelo": "R450 A6X2",
+    "anio": 2020,
+    "patente": "AE152QM",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 6002,
+    "marca": "SCANIA",
+    "modelo": "R450 A6X2",
+    "anio": 2019,
+    "patente": "AD997WR",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 11662,
+    "marca": "WOLKWAGEN",
+    "modelo": "AMAROK",
+    "anio": 2023,
+    "patente": "AF919MA",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 16102,
+    "marca": "SCANIA",
+    "modelo": "R540 A6X4",
+    "anio": 2022,
+    "patente": "AF388JB",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 20502,
+    "marca": "VOLKSWAGEN",
+    "modelo": "AMAROK 4X4",
+    "anio": 2023,
+    "patente": "AG072QF",
+    "tipo_vehiculo": "Camioneta",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Vtv": "Documento fuera de vigencia."
+      },
+      {
+        "Certificado jaula antivuelco": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 22002,
+    "marca": "SCANIA",
+    "modelo": "G500 A6X2",
+    "anio": 2023,
+    "patente": "AG131UL",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Contrato o Póliza": "Documento fuera de vigencia."
+      },
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      },
+      {
+        "RUTA": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 22842,
+    "marca": "IVECO",
+    "modelo": "DAILY 50-170",
+    "anio": 2023,
+    "patente": "AG161SX",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 25282,
+    "marca": "MARCELINI",
+    "modelo": "SRC20NA",
+    "anio": 2023,
+    "patente": "AF955UL",
+    "tipo_vehiculo": "Otro",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 29502,
+    "marca": "CARRETONES DANIEL BRITO ",
+    "modelo": "CARRETON 3 EJES",
+    "anio": 2023,
+    "patente": "ZZ000WD",
+    "tipo_vehiculo": "Acoplado",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  },
+  {
+    "id": 36282,
+    "marca": "SCANIA",
+    "modelo": "G500 A6X2",
+    "anio": 2023,
+    "patente": "AG321KZ",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": false,
+    "estado": "rechazado",
+    "motivo": [
+      {
+        "Seguro Responsabilidad Civil - Comprobante de Pago": "Documento fuera de vigencia."
+      }
+    ]
+  },
+  {
+    "id": 38322,
+    "marca": "SCANIA",
+    "modelo": "G500 A6X2",
+    "anio": 2023,
+    "patente": "AG248IE",
+    "tipo_vehiculo": "Camión",
+    "status": {
+      "id": 3,
+      "name": "Aprobado"
+    },
+    "company": {
+      "id": 424,
+      "nombre_comercial": "FMF ARGENTINA S.R.L.",
+      "razon_social": "FMF ARGENTINA S.R.L."
+    },
+    "allowed": true,
+    "estado": "aprobado"
+  }
+]
