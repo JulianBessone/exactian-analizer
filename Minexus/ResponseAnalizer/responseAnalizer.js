@@ -1,6 +1,6 @@
 const { writeExcelMinexusEmployees, writeExcelMinexusVehi } = require("../../Excels/writeExel");
 
-const responseAnalizerEmployees = async (response) => {
+const responseAnalizerEmployees = async (response, account, dni) => {
     if(response.url() === 'https://eramine.codin.minexus.net/proxy/staff/all_staff') {
         const responseBody = await response.text();
         const jsonResponse = JSON.parse(responseBody);
@@ -55,11 +55,15 @@ const responseAnalizerEmployees = async (response) => {
             }
         })
         const allResourcesList = [...employeesNotAllowedList, ...employeesAllowedList]
-        writeExcelMinexusEmployees(allResourcesList)
+        if(dni){
+            findEmple(allResourcesList, dni)
+        }else{
+            writeExcelMinexusEmployees(allResourcesList, account)
+        }
     }  
 }
 
-const responseAnalizerVehi = async (response, patente) => {
+const responseAnalizerVehi = async (response, account, patente) => {
     if(response.url() === 'https://eramine.codin.minexus.net/proxy/vehicles/entrance') {
         const responseBody = await response.text();
         const jsonResponse = JSON.parse(responseBody);
@@ -98,14 +102,13 @@ const responseAnalizerVehi = async (response, patente) => {
 
                 vehiAllowedList.push(vehiculo)
             }
-
         })
-        writeExcelMinexusVehi([...vehiNotAllowedList, ...vehiAllowedList])
-
-        //No te moma los vehiculos 
+        //Si recibe una patente buscara el objeto si no  escribira el excel
         if(patente){
             findVehi([...vehiNotAllowedList, ...vehiAllowedList], patente)
-        }
+        }else{
+            writeExcelMinexusVehi([...vehiNotAllowedList, ...vehiAllowedList], account)
+        }   
     }
 }
 
@@ -114,6 +117,18 @@ const findVehi = async (data, patente) => {
         return (vehi.patente.toUpperCase() === patente.toUpperCase())
     })
     console.log(result)
+}
+const findEmple = async (data, dni) => {
+    let resultWithStatus = {}
+    const result = await data.find((employee) => {
+        return (employee.dni.toUpperCase() === dni.toUpperCase())
+    })
+    if(result.generalReason.length <= 0 && Object.keys(result.contractsReason).length === 0){
+        resultWithStatus = { estado: 'Aprobado', ...result}
+    } else{
+        resultWithStatus = { estado: 'Rechazado', ...result}
+    }
+    console.log(resultWithStatus)
 }
 
 const responseAnalizerClg = async (response) => {

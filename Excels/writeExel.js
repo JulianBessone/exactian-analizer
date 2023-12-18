@@ -40,7 +40,7 @@ const writeExcel = (data) =>{
 
 }
 
-const writeExcelMinexusEmployees = async (data) => {
+const writeExcelMinexusEmployees = async (data, account) => {
     const workbook = await XlsxPopulate.fromBlankAsync();
     const worksheet = workbook.sheet('Sheet1');
 
@@ -100,11 +100,11 @@ const writeExcelMinexusEmployees = async (data) => {
     });
 
     // Guardar el archivo
-    await workbook.toFileAsync('data.xlsx');
+    await workbook.toFileAsync(`Analisis de Documentacion Empleados ${account.name} - Minexus.xlsx`);
     console.log('Excel generado exitosamente.');
 }
 
-const writeExcelMinexusVehi = async (data) => {
+const writeExcelMinexusVehi = async (data, account) => {
     const workbook = await XlsxPopulate.fromBlankAsync();
     const worksheet = workbook.sheet('Sheet1');
     // Definir la estructura de la primera fila con los encabezados
@@ -136,7 +136,7 @@ const writeExcelMinexusVehi = async (data) => {
         }
     })
     // Guardar el archivo
-    await workbook.toFileAsync('Analisis de Documentacion Vehicular Minexus.xlsx');
+    await workbook.toFileAsync(`Analisis de Documentacion Vehicular ${account.name} - Minexus.xlsx`);
     console.log('Excel generado exitosamente.');
 }
 

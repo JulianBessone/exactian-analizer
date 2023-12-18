@@ -36,9 +36,11 @@ const navigateMinexus = async (page, where) =>{
         case 'empleados':
             await page.goto('https://eramine.codin.minexus.net/proveedores/entrances')     
             await page.waitForTimeout(40000)
+            break;
         case 'vehiculos':
             await page.goto('https://eramine.codin.minexus.net/proveedores/entrances')
             await page.waitForTimeout(40000)
+            break;
 
         default:
             break;
