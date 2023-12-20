@@ -40,6 +40,56 @@ const writeExcel = (data) =>{
 
 }
 
+const writeExcelExactianEmployees = async (data,account) => {
+    const workbook = await XlsxPopulate.fromBlankAsync();
+    const worksheet = workbook.sheet('Sheet1');
+
+    // Definir la estructura de la primera fila con los encabezados
+    const headers = ['Apellido - Nombre - DNI', 'Docu1', 'Docu2', 'Docu3', 'Docu4', 'Docu5'];
+    worksheet.range('A1:K1').value([headers]);
+
+     // Llenar las filas con los datos
+    await data.forEach((employee, index) => {
+        if(Object.keys(employee).length <= 1){
+            return
+        }
+        const row = index + 2; // Empezar desde la fila 2 (fila 1 es para los encabezados)
+
+        const employeeNameCell = worksheet.cell(`A${row}`)//guardo la celda de nombre
+        employeeNameCell.value(employee.nombre)// Escribo el nombre en la primera columna
+        let columnCode = 65; // Código ASCII para la letra 'A' que es la columna donde empiezan la info de contratos
+
+        let acc = 1
+
+        for (const document in employee) {
+
+            const element = employee[document];
+
+            if(element === 'Vencida' || element === 'No esta presentada'){
+                employeeNameCell.style('fill', 'ff0000')
+                
+                // Obtener la clave y el valor del objeto
+                let [clave, valor] = Object.entries(employee)[acc];
+                let info = `${clave}: ${valor}`;
+
+                worksheet.cell(`${String.fromCharCode(columnCode + acc)}${row}`).value(info)
+                acc = acc + 1
+            }
+            if(element === 'Aprobado'){
+                // Obtener la clave y el valor del objeto
+                const [clave, valor] = Object.entries(employee)[acc];
+                const info = `${clave}: ${valor}`;
+
+                worksheet.cell(`${String.fromCharCode(columnCode + acc)}${row}`).value(info)
+                acc = acc + 1
+            }
+        }
+    });
+    // Guardar el archivo
+    await workbook.toFileAsync(`Analisis de Documentacion Empleados ${account.name} - Exactian.xlsx`);
+    console.log('Excel generado exitosamente.');
+}
+
 const writeExcelMinexusEmployees = async (data, account) => {
     const workbook = await XlsxPopulate.fromBlankAsync();
     const worksheet = workbook.sheet('Sheet1');
@@ -142,6 +192,7 @@ const writeExcelMinexusVehi = async (data, account) => {
 
 module.exports = {
     writeExcel,
+    writeExcelExactianEmployees,
     writeExcelMinexusEmployees,
     writeExcelMinexusVehi
 }

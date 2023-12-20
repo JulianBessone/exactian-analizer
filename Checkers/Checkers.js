@@ -54,11 +54,14 @@ const checkTypePlattaform = async (account, outputSendInfo, type, oneInfo) => {
             }
             else{
                 console.log('...Espera que se inicie el bot de Exactian')
-                const exactianBot = new ExactianBot()
-                await exactianBot.launch(account)
-                await exactianBot.login(account)
-                await exactianBot.navegate('generalDocu',account)
-                await exactianBot.getInfoEmployee('', ``, true)
+
+                const exactianBot = new ExactianBot() //Creo una instancia de la clase MinexusBot
+                await exactianBot.launch(account) //invoco el metodo launch para lanzar el navegador en 2do plano
+                await exactianBot.login(account) //invoco el metodo login para inciar la secion y le paso el parametro account para que ingrese segun la cuenta seleccionada del proyecto minero correspondiente
+                if(type === 'empleados'){
+                    await exactianBot.navegate('generalDocu',account)
+                    await exactianBot.getInfoEmployee('', ``, true, null, account)
+                }
                 await exactianBot.close()
             }
             break;

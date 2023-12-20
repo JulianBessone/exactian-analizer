@@ -99,7 +99,6 @@ inquirer.prompt({
                     checkTypePlattaform(account, answers.MenuInfoVehi, 'vehiculos') // Invocamos la fn que recibe la info de la cuenta, donde el usuario desea recibir la info, y el tipo de acción que desea hacer.   
                 })
             })
-            
         }
 
          //***************        VERIFICAR DOCUMENTACION EMPRESA     *****************/  

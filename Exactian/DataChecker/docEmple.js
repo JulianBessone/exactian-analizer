@@ -17,6 +17,7 @@ const getDocEmple = async (tableDocEmple, page) =>{
     let index = 0 //Crearemos un acumulador
 
     for (const tr of elementTableInDivDocEmple) {
+        let emple = {}
         const stateOfDoc = await tr.$('td:first-child')
         const textOfDoc = await tr.$('td:last-child')
         

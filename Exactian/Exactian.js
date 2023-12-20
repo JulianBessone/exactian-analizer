@@ -5,7 +5,7 @@ const { getDocVehi, getDocVehiByPatent } = require('./DataChecker/docVehi');
 const { logginExactian, navegationMenu, oldSiteComeBack } = require('./ExactianInterface/ExactianInterface');
 const { notifyDocEmpleProblems, notifyDocVehiProblems, notifyDocContra } = require('../Notifications/notificationsDocu');
 const { chargeData, chargeDataWpp } = require('./ChargeData/ChargeData');
-const { writeExcel } = require('../Excels/writeExel.js');
+const { writeExcel, writeExcelExactianEmployees } = require('../Excels/writeExel.js');
 
 class ExactianBot {
     constructor() {
@@ -51,7 +51,7 @@ class ExactianBot {
         }
     }
 
-    async getInfoEmployee(client, user, excel, nameEmployee){
+    async getInfoEmployee(client, user, excel, nameEmployee, account){
         await this.page.waitForTimeout(5000)
         //TABLA DE INFORMACIÓN
         await this.page.waitForSelector('table#principal table table table tr')
@@ -64,7 +64,7 @@ class ExactianBot {
         const docInfoEmple = await getDocEmple(tableDocEmple,this.page)
         console.log('... INFORMACIÓN PROCESADA CORRECTAMENTE')
         if(excel){
-            writeExcel(docInfoEmple)
+            writeExcelExactianEmployees(docInfoEmple,account)
             console.log('*****************   DATOS GUARDADOS EN EXCEL   ***********************')
         } else if(nameEmployee){
             const emple = await getDocEmpleByName(docInfoEmple, nameEmployee)
