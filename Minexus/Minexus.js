@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer')
-const { logginMinexus, navigateMinexus } = require("./MinexusInterface/MinexusInterface");
+const { logginMinexus, navigateMinexus, chargePeople } = require("./MinexusInterface/MinexusInterface");
 const { responseAnalizerEmployees, responseAnalizerVehi } = require('./ResponseAnalizer/ResponseAnalizer');
+const { leerExcelCargaEmpleadosMinexus } = require('../Excels/readExcel');
 
 class MinexusBot {
     constructor() {
@@ -41,12 +42,19 @@ class MinexusBot {
     async personalInfoCheck(account, dni){
         this.requestAnalizer('trabajadores', account, dni)
         console.log('... Descargando informacion de los empleados. ⏱')
-        await navigateMinexus(this.page,'empleados')
+        await navigateMinexus(this.page,'empleados', account)
     }
     async vehiculosInfoCheck(account, patente){
         this.requestAnalizer('vehiculos', account, patente)
         console.log('... Descargando informacion de los Vehiculos. ⏱')
-        await navigateMinexus(this.page,'vehiculos')
+        await navigateMinexus(this.page,'vehiculos', account)
+    }
+    async chargeInfoMasive(account){
+        await navigateMinexus(this.page, 'cargarEmpleMasivo', account)
+        console.log('... Ingresando al panel. ⏱')
+        console.log('... Subiendo data. 🔝⏱')
+        const dataToCharge = await leerExcelCargaEmpleadosMinexus()
+        await chargePeople(this.page, dataToCharge[0])
     }
 
     async close() {

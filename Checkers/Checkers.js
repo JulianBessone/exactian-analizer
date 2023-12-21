@@ -44,6 +44,9 @@ const checkTypePlattaform = async (account, outputSendInfo, type, oneInfo) => {
                 if(type === 'filterVehi'){
                     await minexusBot.vehiculosInfoCheck(account, oneInfo) //le paso oneInfo como parametro para que busque por Patente
                 }
+                if(type === 'CargarDocuMasivaEmple'){
+                    await minexusBot.chargeInfoMasive(account)
+                }
 
                 await minexusBot.close()
             }

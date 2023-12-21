@@ -27,13 +27,15 @@ inquirer.prompt({
                 name: 'MenuChargeDataInfo',
                 type: 'list',
                 color: 'blue',
-                message: 'De que Minera deseas Verificar',
-                choices: ['Sales', 'Pirquitas', 'Livent', 'Eramine', 'Galaxy', 'Litio', 'Litica', 'Lithea', 'Salta Exploraciones', 'Mansfield', 'Exar', 'Unipar']
+                message: 'De que Minera deseas Cargar',
+                choices: proyectsChoices
             })
             .then( async (answers) => {
                 const proyect = answers.MenuChargeDataInfo; //GUARDAMOS EL PROYECTO
+
+                const account = selectAccount(proyect)
+                checkTypePlattaform(account, null, 'CargarDocuMasivaEmple') 
             })
-            leerExcel()
         }
 
          //***************        VERIFICAR DOCUMENTACION EMPLEADOS     *****************/  
