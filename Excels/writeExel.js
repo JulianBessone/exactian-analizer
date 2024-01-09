@@ -37,7 +37,6 @@ const writeExcel = (data) =>{
     // Guardar el contenido en un archivo
     fs.writeFileSync('Analisis de Documentaciones.xlsx', excelBuffer);
     console.log('Archivo Excel generado con éxito.');
-
 }
 
 const writeExcelExactianEmployees = async (data,account) => {

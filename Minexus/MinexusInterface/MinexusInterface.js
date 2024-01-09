@@ -108,7 +108,7 @@ const chargePeople = async (page, data) => {
         if(data.Departamento){
             await page.$eval(inputSelectorMuni, (input, value) => input.value = value , data.Departamento)
         }else{
-            await page.$eval(inputSelectorMuni, (input, value) => input.value = value, data.Departamento)
+            await page.$eval(inputSelectorMuni, (input, value) => input.value = value, 'Capital')
         }
         await page.waitForTimeout(1000);
         await page.keyboard.press('Enter')
@@ -120,15 +120,15 @@ const chargePeople = async (page, data) => {
         await page.$eval(inputSelectorResidenceCountry, (input, value) => input.value = value, 'Argentina');
         await page.waitForTimeout(1000);
         await page.keyboard.press('Enter');
-
+        await page.waitForTimeout(2000);
         await page.$eval(inputSelectorResidenceState, (input, value) => input.value = value, 'Salta');
         await page.waitForTimeout(1000);
         await page.keyboard.press('Enter');
-
+        await page.waitForTimeout(2000);
         await page.$eval(inputSelectorResidenceDepartment, (input, value) => input.value = value, 'Capital');
         await page.waitForTimeout(1000);
         await page.keyboard.press('Enter');
-
+        await page.waitForTimeout(2000);
         const cuil = await page.$$('#cuil')
         const cuilFirst = cuil[0]
         const cuilSecond = cuil[1]
@@ -137,9 +137,7 @@ const chargePeople = async (page, data) => {
         await cuilSecond.type(dni[2])
         await page.waitForTimeout(3000)
 
-        const inputSelectorStaffType = '#staff_type';
-        await page.select('#staff_type', 'Relación de dependencia');
-
+        
         await page.waitForTimeout(1000)
         await page.evaluate(() => {
             const select = document.querySelector('#puesto');
@@ -148,6 +146,14 @@ const chargePeople = async (page, data) => {
         });
         await page.waitForTimeout(1000)
         await page.type('#cargo', data.DetallesPuesto)
+        
+
+        // Seleccionar la opción con valor '2' dentro del elemento select
+        await page.evaluate(() => {
+            const select = document.querySelector('#__BVID__107 div select');
+            select.value = '2';
+            select.dispatchEvent(new Event('change'));
+        }); 
 
         const inputSelectorConvenio = '#convenio_laboral_id div div input'
         await page.waitForSelector('#convenio_laboral_id div div input');
@@ -158,6 +164,10 @@ const chargePeople = async (page, data) => {
         }
         await page.waitForTimeout(2000)
         await page.keyboard.press('Enter');
+        await page.waitForTimeout(1000)
+
+        const buttonGuardar = await page.$('button.btn.m-1.btn-primary');
+        await buttonGuardar.click();
 
         await page.waitForTimeout(60000)
 
